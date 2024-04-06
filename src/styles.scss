@@ -1,1 +1,18 @@
 /* Global styles */
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card {
+  outline: none;
+}
+
+.card:hover,
+.card:focus {
+  transition: 0.3s;
+  opacity: 0.8;
+  background: black;
+  color: white;
+}

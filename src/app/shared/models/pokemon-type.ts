@@ -1,1 +1,1 @@
-export type PokemonType = 'grass' | 'fire' | 'water' | 'thunder' | 'physco';
+export type PokemonType = 'normal' | 'grass' | 'fire' | 'water' | 'thunder' | 'bug';
