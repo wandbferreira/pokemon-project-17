@@ -1,33 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { pokemonsMock } from '../../../mocks/pokemons.mock';
 import { Pokemon } from '../../shared/models/pokemon';
 import { PokemonFilter } from '../pokemon-list-filter/pokemon-list-filter.component';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
 })
-export class PokemonListComponent {
+export class PokemonListComponent implements OnInit {
   pokemons: Pokemon[] = pokemonsMock;
+  filter: PokemonFilter = {
+    name: '',
+  }
 
-  filterPokemons(filter: PokemonFilter) {
-    console.log('filtrar:', filter);
+  constructor(private route: ActivatedRoute) { }
 
-    const filterByName = (p: Pokemon): boolean => {
-      const name = filter.name.toLowerCase();
-      return p.name.toLowerCase().includes(name);
-    };
+  ngOnInit(): void {
+    this.filterPokemons();
+  }
 
-    const filterByType = (p: Pokemon): boolean => {
-      if (!filter.type){
-        return true;
-      }
-      return p.type.includes(filter.type);
-    };
+  private filterPokemons() {
+    this.route.queryParams.subscribe(params => {
+      console.log('filtrar:', params);
+      this.filter.name = params['name'] ?? '';
+      this.filter.type = params['type'] ?? undefined;
 
-    this.pokemons = pokemonsMock
-      .filter(filterByName)
-      .filter(filterByType);
+      const filterByName = (p: Pokemon): boolean => {
+        if (!params['name']) {
+          return true;
+        }
+        const name = params['name'].toLowerCase();
+        return p.name.toLowerCase().includes(name);
+      };
+
+      const filterByType = (p: Pokemon): boolean => {
+        if (!params['type']) {
+          return true;
+        }
+        return p.type.includes(params['type']);
+      };
+
+      this.pokemons = pokemonsMock
+        .filter(filterByName)
+        .filter(filterByType);
+    });
   }
 
 }

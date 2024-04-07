@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PokemonType } from '../../shared/models/pokemon-type';
+import { Router } from '@angular/router';
 
 export interface PokemonFilter {
   name: string;
@@ -12,19 +13,19 @@ export interface PokemonFilter {
   styleUrl: './pokemon-list-filter.component.scss',
 })
 export class PokemonListFilterComponent {
-  @Output() filterChange = new EventEmitter<PokemonFilter>();
-
-  filter: PokemonFilter = {
+  @Input() filter: PokemonFilter = {
     name: '',
   };
 
+  constructor(private router: Router) { }
+
   filterByName(name: string) {
     this.filter.name = name;
-    this.filterChange.emit(this.filter);
+    this.router.navigate(['pokemons/lista'], { queryParams: this.filter })
   }
 
   filterByType(type?: PokemonType) {
     this.filter.type = type;
-    this.filterChange.emit(this.filter);
+    this.router.navigate(['pokemons/lista'], { queryParams: this.filter })
   }
 }

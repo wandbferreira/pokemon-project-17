@@ -1,11 +1,15 @@
 <main class="p-4" id="pokemon-list">
   <h1>Pokemons</h1>
 
-  <app-pokemon-list-filter (filterChange)="filterPokemons($event)">
+  <app-pokemon-list-filter [filter]="filter">
   </app-pokemon-list-filter>
 
   <div id="pokemon-list-counter" class="mb-3" [ngPlural]="pokemons.length">
-    <ng-template ngPluralCase="=0">nenhum pokemon encontrado.</ng-template>
+    <ng-template ngPluralCase="=0">
+      A busca
+      <ng-container *ngIf="filter.name">por "{{ filter.name }}"</ng-container>
+      não encontrou nenhum pokemon.
+    </ng-template>
     <ng-template ngPluralCase="=1">1 pokemon encontrado.</ng-template>
     <ng-template ngPluralCase="other">{{ pokemons.length }} pokemons encontrados.</ng-template>
   </div>

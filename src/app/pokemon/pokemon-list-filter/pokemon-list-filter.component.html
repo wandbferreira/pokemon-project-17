@@ -4,7 +4,7 @@
       <span class="input-group-text">
         <img src="assets/icons/search-icon.svg" alt="Buscar" aria-hidden="true">
       </span>
-      <input ngModel (ngModelChange)="filterByName($event)" type="text" class="form-control" placeholder="Buscar"
+      <input [ngModel]="filter.name" (ngModelChange)="filterByName($event)" type="text" class="form-control" placeholder="Buscar"
         id="pokemon-list-search">
     </div>
   </div>
