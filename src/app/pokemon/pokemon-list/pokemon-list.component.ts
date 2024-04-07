@@ -8,4 +8,13 @@ import { Pokemon } from '../../shared/models/pokemon';
 })
 export class PokemonListComponent {
   pokemons: Pokemon[] = pokemonsMock;
+
+  filterByName(name: string) {
+    console.log(name);
+    const search = name?.toLowerCase();
+
+    this.pokemons = pokemonsMock.filter(p => {
+      return p.name.toLowerCase().includes(search);
+    })
+  }
 }

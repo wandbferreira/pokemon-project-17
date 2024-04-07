@@ -12,7 +12,6 @@ export const routes: Routes = [
     loadChildren: () =>
       from(import('./pokemon/pokemon.module')).pipe(
         map((m) => m.PokemonsModule),
-        delay(1500),
       ),
   },
   {

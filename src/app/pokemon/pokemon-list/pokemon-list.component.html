@@ -5,10 +5,15 @@
     <span class="input-group-text">
       <img src="assets/icons/search-icon.svg" alt="Buscar" aria-hidden="true">
     </span>
-    <input type="text" class="form-control" placeholder="Buscar">
+    <input ngModel (ngModelChange)="filterByName($event)" type="text" class="form-control" placeholder="Buscar"
+      id="pokemon-list-search">
   </div>
 
-  <p>{{pokemons.length}} pokemon(s) encontrados.</p>
+  <div id="pokemon-list-counter" [ngPlural]="pokemons.length">
+    <ng-template ngPluralCase="=0">nenhum pokemon encontrado.</ng-template>
+    <ng-template ngPluralCase="=1">1 pokemon encontrado.</ng-template>
+    <ng-template ngPluralCase="other">{{ pokemons.length }} pokemons encontrados.</ng-template>
+  </div>
 
   <div class="row">
     <div *ngFor="let pokemon of pokemons" routerLink="" class="mb-4 col-12 col-sm-6 col-md-4 col-lg-3">

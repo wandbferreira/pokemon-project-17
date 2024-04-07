@@ -13,7 +13,7 @@ import { delay, filter, map } from 'rxjs';
 })
 export class AppComponent {
   today = new Date();
-  isLoading = true;
+  isLoading = false;
 
   private loadedPath?: string;
 
