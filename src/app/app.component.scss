@@ -1,0 +1,34 @@
+.loading {
+  background: #0a58ca;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0vw;
+  height: 5px;
+  animation: loading forwards 20s;
+
+  &.loaded {
+    width: 100vw;
+    transition: 1s;
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0vw;
+  }
+
+  10% {
+    width: 70vw;
+  }
+
+  75% {
+    width: 95vw;
+  }
+
+  100% {
+    width: 98vw;
+  }
+}

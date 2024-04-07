@@ -1,3 +1,5 @@
+<div class="loading" [class.loaded]="!isLoading" aria-hidden="true"></div>
+
 <header class="p-3 bg-dark text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -21,11 +23,7 @@
 
 
 <div class="container">
-  <main *ngIf="isLoading" class="text-center p-4">
-    Carregando...
-  </main>
-
-  <router-outlet *ngIf="!isLoading"></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 
 <footer class="p-3 bg-dark text-white text-center">
