@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { PokemonListFilterComponent } from './pokemon-list-filter/pokemon-list-filter.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [PokemonListComponent],
+  declarations: [PokemonListComponent, PokemonListFilterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

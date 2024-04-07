@@ -1,13 +1,8 @@
 <main class="p-4" id="pokemon-list">
   <h1>Pokemons</h1>
 
-  <div class="input-group mb-3">
-    <span class="input-group-text">
-      <img src="assets/icons/search-icon.svg" alt="Buscar" aria-hidden="true">
-    </span>
-    <input ngModel (ngModelChange)="filterByName($event)" type="text" class="form-control" placeholder="Buscar"
-      id="pokemon-list-search">
-  </div>
+  <app-pokemon-list-filter (filterChange)="filterPokemons($event)">
+  </app-pokemon-list-filter>
 
   <div id="pokemon-list-counter" class="mb-3" [ngPlural]="pokemons.length">
     <ng-template ngPluralCase="=0">nenhum pokemon encontrado.</ng-template>
