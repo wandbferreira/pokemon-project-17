@@ -9,7 +9,7 @@
       id="pokemon-list-search">
   </div>
 
-  <div id="pokemon-list-counter" [ngPlural]="pokemons.length">
+  <div id="pokemon-list-counter" class="mb-3" [ngPlural]="pokemons.length">
     <ng-template ngPluralCase="=0">nenhum pokemon encontrado.</ng-template>
     <ng-template ngPluralCase="=1">1 pokemon encontrado.</ng-template>
     <ng-template ngPluralCase="other">{{ pokemons.length }} pokemons encontrados.</ng-template>
