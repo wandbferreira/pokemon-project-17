@@ -9,7 +9,7 @@
 
   &.loaded {
     width: 100vw;
-    transition: 1s;
+    transition: 2s ease-in-out;
     animation: none;
     opacity: 0;
   }
@@ -21,7 +21,7 @@
   }
 
   10% {
-    width: 70vw;
+    width: 75vw;
   }
 
   75% {
