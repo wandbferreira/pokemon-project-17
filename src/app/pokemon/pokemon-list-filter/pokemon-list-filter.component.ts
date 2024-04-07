@@ -18,8 +18,6 @@ export class PokemonListFilterComponent {
     name: '',
   };
 
-  typeName = 'Todos';
-
   filterByName(name: string) {
     this.filter.name = name;
     this.filterChange.emit(this.filter);
@@ -28,19 +26,5 @@ export class PokemonListFilterComponent {
   filterByType(type?: PokemonType) {
     this.filter.type = type;
     this.filterChange.emit(this.filter);
-
-    const map = new Map<PokemonType, string>([
-      ['grass', 'Terra'],
-      ['fire', 'Fogo'],
-      ['water', 'Água'],
-      ['thunder', 'Raio'],
-      ['bug', 'Inseto'],
-    ]);
-
-    if (type) {
-      this.typeName = map.get(type) ?? 'Desconhecido';
-    } else {
-      this.typeName = 'Todos';
-    }
   }
 }

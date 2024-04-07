@@ -20,8 +20,6 @@ export class PokemonListComponent {
 
     const filterByType = (p: Pokemon): boolean => {
       if (!filter.type){
-        console.log('ss');
-
         return true;
       }
       return p.type.includes(filter.type);
