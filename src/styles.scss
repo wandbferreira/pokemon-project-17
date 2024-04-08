@@ -6,24 +6,24 @@ a {
   cursor: pointer;
 }
 
-.card {
+.card-animate {
   outline: none;
 }
 
-.card:hover,
-.card:focus {
+.card-animate:hover,
+.card-animate:focus {
   transition: 0.3s;
   opacity: 0.8;
   background: black;
   color: white;
 }
 
-.card img {
+.card-animate img {
   transition: 0.1s;
 }
 
-.card:hover img,
-.card:focus img {
+.card-animate:hover img,
+.card-animate:focus img {
   transition: 0.2s ease-in-out;
   transform: scale(1.2);
 }

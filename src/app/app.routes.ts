@@ -8,10 +8,26 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'login',
+    loadComponent: () =>
+      from(import('./login/login.component')).pipe(
+        map(c => c.LoginComponent),
+        delay(800),
+      ),
+  },
+  {
     path: 'pokemons',
     loadChildren: () =>
       from(import('./pokemon/pokemon.module')).pipe(
-        map((m) => m.PokemonsModule),
+        map(m => m.PokemonModule),
+      ),
+  },
+  {
+    path: 'treinadores',
+    loadChildren: () =>
+      from(import('./trainer/trainer.module')).pipe(
+        map(c => c.TrainerModule),
+        delay(800),
       ),
   },
   {

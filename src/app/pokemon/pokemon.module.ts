@@ -27,4 +27,4 @@ const routes: Routes = [
     PokemonTypePipe,
   ],
 })
-export class PokemonsModule {}
+export class PokemonModule {}
