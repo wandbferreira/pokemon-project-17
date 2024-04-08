@@ -1,0 +1,51 @@
+<main class="row" *ngIf="pokemon">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <img src="{{ pokemon.image }}" alt="Pokémon" class="card-img-top" />
+      <div class="card-body">
+        <h2 class="card-title">{{ pokemon.name }}</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>ID:</strong> {{ pokemon.id }}</p>
+            <p>
+              <strong>Tipo:</strong>
+              <a routerLink="/pokemons" [queryParams]="{ type: pokemon.type}">
+                {{ pokemon.type | pokemonType }}
+              </a>
+            </p>
+            <p><strong>Altura:</strong> 0.7 m</p>
+            <p><strong>Peso:</strong> 6.9 kg</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>Habilidades:</strong></p>
+            <ul class="list-group">
+              <li class="list-group-item">Overgrow</li>
+              <li class="list-group-item">Chlorophyll</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <h5>Treinadores</h5>
+
+          <span *ngFor="let trainer of trainers; let last = last">
+            <a class="inline" [routerLink]="['/treinadores']">
+              {{ trainer }}
+            </a>
+            <span *ngIf="!last">,</span>
+          </span>
+        </div>
+
+        <div class="mt-3">
+          <h5>Evoluções</h5>
+          <ng-container *ngFor="let evolution of (pokemon | pokemonEvolutions); let last = last">
+            <a class="inline" routerLinkActive="fw-bold" [routerLink]="['/pokemons', evolution.id]">
+              {{evolution.name }}
+            </a>
+            <ng-container *ngIf="!last">, </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

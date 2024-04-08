@@ -1,16 +1,18 @@
-<div class="col-md-6 offset-md-3">
+<main class="col-md-6 offset-md-3 my-3">
   <div class="card">
-    <img src="https://freepngimg.com/thumb/pokemon/20090-7-pokemon-ash-hd.png" alt="Treinador" class="card-img-top">
+    <img src="assets/images/trainers/1.png" alt="Ash ketchum" class="card-img-top">
     <div class="card-body">
-      <h2 class="card-title">Ash Ketchum</h2>
+      <h2 class="card-title mx-3">{{ trainer.name }}</h2>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Idade: 10 anos</li>
-        <li class="list-group-item">Localização: Pallet Town</li>
-        <li class="list-group-item">Time:
-          <a [routerLink]="['/pokemon', 25]">Pikachu</a>,
-          <a [routerLink]="['/pokemon', 6]">Charizard</a>,
-          <a [routerLink]="['/pokemon', 1]">Bulbasaur</a>.
+        <li class="list-group-item">Idade: {{ trainer.age }} anos</li>
+        <li class="list-group-item">Localização: {{ trainer.location }}</li>
+        <li class="list-group-item">
+          <h5>Time</h5>
+          <a [routerLink]="['/pokemons', 1]">Bulbasaur</a>,
+          <a [routerLink]="['/pokemons', 4]">Charmander</a>,
+          <a [routerLink]="['/pokemons', 7]">Squirtle</a>,
+          <a [routerLink]="['/pokemons', 25]">Pikachu</a>
       </ul>
     </div>
   </div>
-</div>
+</main>

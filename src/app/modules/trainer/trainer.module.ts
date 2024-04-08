@@ -6,6 +6,11 @@ import { Route, RouterModule } from '@angular/router';
 const routes: Route[] = [
   {
     path: '',
+    redirectTo: '1',
+    pathMatch: 'full',
+  },
+  {
+    path: ':id',
     component: TrainerDetailComponent,
   }
 ]

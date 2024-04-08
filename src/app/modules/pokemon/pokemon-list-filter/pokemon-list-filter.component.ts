@@ -21,11 +21,11 @@ export class PokemonListFilterComponent {
 
   filterByName(name: string) {
     this.filter.name = name;
-    this.router.navigate(['pokemons/lista'], { queryParams: this.filter })
+    this.router.navigate(['pokemons'], { queryParams: this.filter })
   }
 
   filterByType(type?: PokemonType) {
     this.filter.type = type;
-    this.router.navigate(['pokemons/lista'], { queryParams: this.filter })
+    this.router.navigate(['pokemons'], { queryParams: this.filter })
   }
 }
