@@ -14,7 +14,7 @@ export class PokemonTypePipe implements PipeTransform {
       ['water', 'Água'],
       ['thunder', 'Raio'],
       ['bug', 'Inseto'],
-    ]).get(type) ?? '-';
+    ]).get(type) ?? '?';
   }
 
 }

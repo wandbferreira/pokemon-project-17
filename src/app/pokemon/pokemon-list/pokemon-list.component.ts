@@ -3,10 +3,24 @@ import { pokemonsMock } from '../../../mocks/pokemons.mock';
 import { Pokemon } from '../../shared/models/pokemon';
 import { PokemonFilter } from '../pokemon-list-filter/pokemon-list-filter.component';
 import { ActivatedRoute, Params } from '@angular/router';
+import { trigger, transition, style, animate } from '@angular/animations';
+
+export const fadeAnimation = trigger('fadeAnimation', [
+  transition(':enter', [
+    style({ opacity: 0 }), animate('1300ms', style({ opacity: 1 }))]
+  ),
+  transition(':leave',
+    [style({ opacity: 1 }), animate('1300ms', style({ opacity: 0 }))]
+  )
+]);
+
+
+
 
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
+  animations: [fadeAnimation],
 })
 export class PokemonListComponent implements OnInit {
   pokemons: Pokemon[] = pokemonsMock;
