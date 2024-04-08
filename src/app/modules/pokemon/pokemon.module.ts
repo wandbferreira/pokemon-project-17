@@ -4,7 +4,7 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PokemonListFilterComponent } from './pokemon-list-filter/pokemon-list-filter.component';
-import { PokemonTypePipe } from '../shared/pipes/pokemon-type/pokemon-type.pipe';
+import { PokemonTypePipe } from '../../shared/pipes/pokemon-type/pokemon-type.pipe';
 
 const routes: Routes = [
   {

@@ -1,4 +1,4 @@
-import { Pokemon } from './../app/shared/models/pokemon';
+import { Pokemon } from '../app/shared/models/pokemon';
 
 export const pokemonsMock: Pokemon[] = [
   {

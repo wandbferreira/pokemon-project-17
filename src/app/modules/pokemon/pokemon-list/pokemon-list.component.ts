@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { pokemonsMock } from '../../../mocks/pokemons.mock';
-import { Pokemon } from '../../shared/models/pokemon';
 import { PokemonFilter } from '../pokemon-list-filter/pokemon-list-filter.component';
+import { pokemonsMock } from '../../../../mocks/pokemons.mock';
+import { Pokemon } from '../../../shared/models/pokemon';
 
 
 @Component({

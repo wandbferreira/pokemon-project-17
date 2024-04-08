@@ -10,7 +10,7 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () =>
-      from(import('./login/login.component')).pipe(
+      from(import('./modules/login/login.component')).pipe(
         map(c => c.LoginComponent),
         delay(800),
       ),
@@ -18,14 +18,14 @@ export const routes: Routes = [
   {
     path: 'pokemons',
     loadChildren: () =>
-      from(import('./pokemon/pokemon.module')).pipe(
+      from(import('./modules/pokemon/pokemon.module')).pipe(
         map(m => m.PokemonModule),
       ),
   },
   {
     path: 'treinadores',
     loadChildren: () =>
-      from(import('./trainer/trainer.module')).pipe(
+      from(import('./modules/trainer/trainer.module')).pipe(
         map(c => c.TrainerModule),
         delay(800),
       ),
@@ -33,7 +33,7 @@ export const routes: Routes = [
   {
     path: '**',
     loadComponent: () =>
-      from(import('./not-found/not-found.component')).pipe(
+      from(import('./modules/not-found/not-found.component')).pipe(
         map(c => c.NotFoundComponent),
         delay(800),
       ),

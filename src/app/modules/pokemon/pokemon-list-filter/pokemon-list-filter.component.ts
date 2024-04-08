@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PokemonType } from '../../shared/models/pokemon-type';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { PokemonType } from '../../../shared/models/pokemon-type';
 
 export interface PokemonFilter {
   name: string;
