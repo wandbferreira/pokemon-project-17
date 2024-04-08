@@ -8,7 +8,7 @@
           <div class="col-md-6">
             <p><strong>ID:</strong> {{ pokemon.id }}</p>
             <p>
-              <strong>Tipo:</strong>
+              <strong>Tipo: </strong>
               <a routerLink="/pokemons" [queryParams]="{ type: pokemon.type}">
                 {{ pokemon.type | pokemonType }}
               </a>

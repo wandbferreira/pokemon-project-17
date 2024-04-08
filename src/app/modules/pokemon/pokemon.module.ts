@@ -1,4 +1,4 @@
-import { PokemonEvolutionsPipe } from './../../shared/pipes/pokemon-evolutions.pipe';
+import { PokemonEvolutionsPipe } from '../../shared/pipes/pokemon-evolutions/pokemon-evolutions.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';

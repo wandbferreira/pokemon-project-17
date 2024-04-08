@@ -1,6 +1,6 @@
-import { Pokemon } from './../models/pokemon';
+import { Pokemon } from '../../models/pokemon';
 import { Pipe, PipeTransform } from '@angular/core';
-import { pokemonsMock } from '../../../mocks/pokemons.mock';
+import { pokemonsMock } from '../../../../mocks/pokemons.mock';
 
 
 @Pipe({
