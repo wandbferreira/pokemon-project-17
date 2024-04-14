@@ -1,4 +1,3 @@
-import { AnimationTriggerMetadata, animate, animation, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterModule, RouterOutlet } from '@angular/router';
