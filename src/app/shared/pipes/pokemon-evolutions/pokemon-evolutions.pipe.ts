@@ -15,9 +15,9 @@ export class PokemonEvolutionsPipe implements PipeTransform {
     [4, [pokemonsMock[3], pokemonsMock[4], pokemonsMock[5]]],
     [5, [pokemonsMock[3], pokemonsMock[4], pokemonsMock[5]]],
     [6, [pokemonsMock[3], pokemonsMock[4], pokemonsMock[5]]],
-    [7, [pokemonsMock[5], pokemonsMock[6], pokemonsMock[7]]],
-    [8, [pokemonsMock[5], pokemonsMock[6], pokemonsMock[7]]],
-    [9, [pokemonsMock[5], pokemonsMock[6], pokemonsMock[7]]],
+    [7, [pokemonsMock[6], pokemonsMock[7], pokemonsMock[8]]],
+    [8, [pokemonsMock[6], pokemonsMock[7], pokemonsMock[8]]],
+    [9, [pokemonsMock[6], pokemonsMock[7], pokemonsMock[8]]],
   ]);
 
   transform(pokemon: Pokemon): Pokemon[] {
