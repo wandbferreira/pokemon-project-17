@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
-  constructor(
-    private router: Router,
-  ) { }
+  constructor(private router: Router, private route: ActivatedRoute, private route2: ActivatedRoute) { }
 
   login(email: string) {
+    const x = 1;
+    this.route.data;
+    this.route2.data;
     localStorage.setItem('userEmail', email);
     this.router.navigate(['']);
   }
