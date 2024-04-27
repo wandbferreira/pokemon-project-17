@@ -1,0 +1,17 @@
+::ng-deep .pokemon-detail .pokemon-type-icon {
+  border: solid 1px black;
+  transform: scale(2);
+  margin-left: 8px;
+}
+
+
+.carrousel {
+  overflow: auto;
+  overflow-y: hidden;
+  display: flex;
+  margin: 0;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+}

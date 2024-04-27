@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../../../shared/models/pokemon';
+import { pokemonsMock } from '../../../../mocks/pokemons.mock';
 
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
-  styles: `
-  ::ng-deep .pokemon-type-icon {
-    border: solid 1px black;
-    transform: scale(2);
-    margin-left: 8px;
-  }
-  `,
+  styleUrl: './pokemon-detail.component.scss',
 })
 export class PokemonDetailComponent implements OnInit {
   pokemon?: Pokemon;
   evolutions: Pokemon[] = [];
   trainers: string[] = [];
+  enemies = pokemonsMock;
 
   constructor(private activatedRoute: ActivatedRoute) {}
 

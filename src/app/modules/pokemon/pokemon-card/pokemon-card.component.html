@@ -1,0 +1,10 @@
+<a class="card card-animate fadeIn" routerLinkActive="active" [routerLink]="['/pokemons', pokemon.id]">
+  <img class="p-2 card-img-top img-1x1" [src]="pokemon.image" [alt]="pokemon.name">
+  <div class="card-body">
+    <h5 class="card-title">{{ pokemon.name }}</h5>
+    <p class="card-text teste">
+      <app-pokemon-type [type]="pokemon.type"></app-pokemon-type><br>
+      ID: {{ pokemon.id }}
+    </p>
+  </div>
+</a>

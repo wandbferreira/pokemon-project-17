@@ -7,28 +7,6 @@ a {
   cursor: pointer;
 }
 
-.card-animate {
-  outline: none;
-}
-
-.card-animate:hover,
-.card-animate:focus {
-  transition: 0.3s;
-  opacity: 0.8;
-  background: black;
-  color: white;
-}
-
-.card-animate img {
-  transition: 0.1s;
-}
-
-.card-animate:hover img,
-.card-animate:focus img {
-  transition: 0.2s ease-in-out;
-  transform: scale(1.2);
-}
-
 .fadeIn {
   opacity: 0;
   position: relative;
@@ -51,4 +29,8 @@ a {
 
 .img-1x1 {
   aspect-ratio: 1;
+}
+
+.img-515x686{
+  aspect-ratio: 515 / 686;
 }

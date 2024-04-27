@@ -7,10 +7,6 @@
   border-radius: 3px;
 }
 
-:host(.light) .pokemon-type-icon {
-  filter: brightness(2);
-}
-
 :host-context(.dropdown-menu) .pokemon-type-icon {
   border-radius: 50%;
 }

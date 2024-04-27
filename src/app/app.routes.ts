@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { delay, from, map } from 'rxjs';
 import { loggedGuard } from './shared/guards/logged.guard';
 import { unsavedGuard } from './shared/guards/unsaved.guard';
-import { pokemonResolver } from './shared/resolvers/pokemon-detail.resolver';
 
 export const routes: Routes = [
   {

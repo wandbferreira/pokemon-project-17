@@ -1,0 +1,39 @@
+.card {
+  &.active {
+    border: solid 2px black;
+  }
+
+  img {
+    transition: 0.1s;
+  }
+
+  &:hover,
+  &:focus{
+    border-color: black;
+  }
+
+  &:hover img,
+  &:focus img {
+    transition: 0.2s ease-in-out;
+    transform: scale(1.1);
+  }
+}
+
+:host(.animate) {
+  .card {
+    outline: none;
+
+    &:hover,
+    &:focus {
+      transition: 0.3s;
+      opacity: 0.8;
+      background: black;
+      color: white;
+    }
+  }
+
+  &:hover img,
+  &:focus img {
+    transform: scale(1.2);
+  }
+}

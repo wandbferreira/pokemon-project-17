@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { PokemonEvolutionsPipe } from '../../shared/pipes/pokemon-evolutions/pokemon-evolutions.pipe';
+import { PokemonEnemiesPipe } from '../../shared/pipes/pokemon-enemies/pokemon-enemies.pipe';
 import { PokemonTypePipe } from '../../shared/pipes/pokemon-type/pokemon-type.pipe';
 import {
   evolutionsResolver,
@@ -10,6 +10,7 @@ import {
   trainersResolver,
 } from '../../shared/resolvers/pokemon-detail.resolver';
 import { PokemonTypeColorPipe } from './../../shared/pipes/pokemon-type-color/pokemon-type-color.pipe';
+import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { PokemonListFilterComponent } from './pokemon-list-filter/pokemon-list-filter.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
@@ -38,14 +39,15 @@ const routes: Routes = [
     PokemonListComponent,
     PokemonListFilterComponent,
     PokemonTypeComponent,
+    PokemonCardComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
     PokemonTypePipe,
-    PokemonEvolutionsPipe,
     PokemonTypeColorPipe,
+    PokemonEnemiesPipe,
   ],
 })
 export class PokemonModule {}
