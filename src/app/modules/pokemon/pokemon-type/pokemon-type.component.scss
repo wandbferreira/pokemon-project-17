@@ -1,0 +1,16 @@
+.pokemon-type-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: gray;
+  margin-right: 8px;
+  border-radius: 3px;
+}
+
+:host(.light) .pokemon-type-icon {
+  filter: brightness(2);
+}
+
+:host-context(.dropdown-menu) .pokemon-type-icon {
+  border-radius: 50%;
+}

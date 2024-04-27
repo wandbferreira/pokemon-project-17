@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { delay, from, map } from 'rxjs';
 import { loggedGuard } from './shared/guards/logged.guard';
 import { unsavedGuard } from './shared/guards/unsaved.guard';
+import { pokemonResolver } from './shared/resolvers/pokemon-detail.resolver';
 
 export const routes: Routes = [
   {
@@ -39,7 +40,7 @@ export const routes: Routes = [
     loadChildren: () =>
       from(import('./modules/trainer/trainer.module')).pipe(
         map(c => c.TrainerModule),
-        delay(800),
+        delay(200),
       ),
   },
   {

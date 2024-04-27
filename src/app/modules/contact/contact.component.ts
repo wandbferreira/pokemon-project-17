@@ -11,9 +11,10 @@ import { Observable, delay, of } from 'rxjs';
 export class ContactComponent implements UnsavedComponent {
   saved = false;
 
+
   save(): Observable<void> {
     console.log('salvando....');
 
-    return of(undefined).pipe(delay(3000));
+    return of(undefined).pipe(delay(2000));
   }
 }

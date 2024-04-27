@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PokemonFilter } from '../pokemon-list-filter/pokemon-list-filter.component';
 import { pokemonsMock } from '../../../../mocks/pokemons.mock';
 import { Pokemon } from '../../../shared/models/pokemon';
+import { PokemonFilter } from '../pokemon-list-filter/pokemon-list-filter.component';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class PokemonListComponent implements OnInit {
 
   private filterPokemons() {
     this.route.queryParams.subscribe(params => {
-      console.log('filtrar:', params);
+      // console.log('filtrar:', params);
       this.filter.name = params['name'] ?? '';
       this.filter.type = params['type'] ?? undefined;
 

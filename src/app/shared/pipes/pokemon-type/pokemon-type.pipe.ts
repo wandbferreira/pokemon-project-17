@@ -1,3 +1,4 @@
+import { pokemonTypeInfosMock } from './../../../../mocks/pokemon-type-infos.mock';
 import { Pipe, PipeTransform } from '@angular/core';
 import { PokemonType } from '../../models/pokemon-type';
 
@@ -8,13 +9,7 @@ import { PokemonType } from '../../models/pokemon-type';
 export class PokemonTypePipe implements PipeTransform {
 
   transform(type: PokemonType): string | undefined {
-    return new Map<PokemonType, string>([
-      ['grass', 'Terra'],
-      ['fire', 'Fogo'],
-      ['water', 'Água'],
-      ['thunder', 'Raio'],
-      ['bug', 'Inseto'],
-    ]).get(type) ?? '?';
+    return pokemonTypeInfosMock.find(t => t.type === type)?.name ?? '?';
   }
 
 }

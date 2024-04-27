@@ -1,7 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterModule, RouterOutlet } from '@angular/router';
-import { delay, filter, map } from 'rxjs';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
+import {
+  NavigationEnd,
+  NavigationStart,
+  RouteConfigLoadEnd,
+  Router,
+  RouterModule,
+  RouterOutlet,
+} from '@angular/router';
+import { Observable, delay, filter } from 'rxjs';
+import { LoadingService } from './shared/services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -12,37 +25,40 @@ import { delay, filter, map } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   today = new Date();
-  isLoading = false;
+  isLoading = true;
 
-  private loadedPath?: string;
+  constructor(
+    private router: Router,
+    private loadingService: LoadingService,
+    private cd: ChangeDetectorRef
+  ) {}
 
-  constructor(private router: Router) { }
-
-  ngOnInit() {
-    this.startLoadingWithDelay(400);
+  ngOnInit(): void {
+    this.setLoading();
+    this.startLoading();
     this.stopLoading();
   }
 
-  private startLoadingWithDelay(time: number) {
-    const loading = this.router.events.pipe(
-      delay(time),
-      filter(event => event instanceof RouteConfigLoadStart && event.route.path !== this.loadedPath),
-    );
+  private setLoading() {
+    this.loadingService.isLoading().subscribe((i) => {
+      this.isLoading = i;
+      this.cd.detectChanges();
+    });
+  }
 
-    loading.subscribe(() => {
-      this.isLoading = true;
-    })
+  private startLoading() {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationStart))
+      .subscribe(() => {
+        this.loadingService.start();
+      });
   }
 
   private stopLoading() {
-    const loaded = this.router.events.pipe(
-      filter(event => event instanceof RouteConfigLoadEnd),
-      map(event => (event as RouteConfigLoadEnd).route.path)
-    );
-
-    loaded.subscribe(end => {
-      this.loadedPath = end;
-      this.isLoading = false;
-    })
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.loadingService.stop();
+      });
   }
 }
