@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, delay, of, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, delay, of, throwError } from 'rxjs';
 import { pokemonsMock } from '../../../mocks/pokemons.mock';
 import { Pokemon } from '../models/pokemon';
 
@@ -18,6 +18,8 @@ export class PokemonService {
     [8, [7, 8, 9]],
     [9, [7, 8, 9]],
   ]);
+
+  captures$!: Subject<Pokemon[]>;
 
   /**
    * Retorna as evoluções de um pokemon
@@ -52,25 +54,32 @@ export class PokemonService {
    */
   capture(pokemon: Pokemon) {
     console.log('Te capturei!', pokemon.name);
-    const captures = this.getCaptures();
+
+    const captures: Pokemon[] = JSON.parse(localStorage.getItem('captures') || '[]') || [];
     captures.push(pokemon);
     localStorage.setItem('captures', JSON.stringify(captures));
+    this.captures$.next(captures);
   }
 
   /**
    * Retorna a lista de pokemons capturados
    */
-  getCaptures(): Pokemon[] {
-    return JSON.parse(localStorage.getItem('captures') || '[]') || [];
+  getCaptures(): Observable<Pokemon[]> {
+    if (!this.captures$) {
+      const captures: Pokemon[] = JSON.parse(localStorage.getItem('captures') || '[]') || [];
+      this.captures$ = new BehaviorSubject<Pokemon[]>(captures);
+    }
+
+    return this.captures$.asObservable();
   }
 
   /**
    * Retorna true se o pokemon foi capturado pelo usuário
    */
   isCaptured(pokemonId: number): boolean {
-    return this.getCaptures()
-      .map(c => c.id)
-      .includes(pokemonId);
+    const captures: Pokemon[] = JSON.parse(localStorage.getItem('captures') || '[]') || [];
+
+    return captures.map(c => c.id).includes(pokemonId);
   }
 
   /**
@@ -78,5 +87,6 @@ export class PokemonService {
    */
   freeCaptures() {
     localStorage.setItem('captures', '[]');
+    this.captures$.next([]);
   }
 }

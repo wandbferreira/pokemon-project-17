@@ -1,4 +1,4 @@
-<main id="pokebola">
+<main id="pokebola" *ngIf="pokemons$ | async as pokemons">
   <h1 class="mb-4">Pokemons Capturados</h1>
 
   <div id="pokebola-counter" class="mb-3" [ngPlural]="pokemons.length">

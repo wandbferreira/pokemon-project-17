@@ -1,4 +1,12 @@
-import { Directive, EventEmitter, HostBinding, HostListener, Input, OnChanges, Output } from '@angular/core';
+import {
+  Directive,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  OnChanges,
+  Output,
+} from '@angular/core';
 import { pokemonTypeInfosMock } from '../../../mocks/pokemon-type-infos.mock';
 import { PokemonType } from '../models/pokemon-type';
 import { PokemonTypeColorPipe } from '../pipes/pokemon-type-color/pokemon-type-color.pipe';
@@ -16,19 +24,21 @@ export class RandomTypeDirective implements OnChanges {
   @HostBinding('style.backgroundColor') background = 'red';
   @HostBinding('innerHTML') text = '';
 
-  constructor(private pokemonTypePipe: PokemonTypePipe, private pokemonTypeColorPipe: PokemonTypeColorPipe) {}
+  constructor(
+    private pokemonTypePipe: PokemonTypePipe,
+    private pokemonTypeColorPipe: PokemonTypeColorPipe
+  ) {}
 
   ngOnChanges(): void {
     this.type = this.getRandomType();
     this.background = this.pokemonTypeColorPipe.transform(this.type);
-    this.text = 'Mudar para ' + this.pokemonTypePipe.transform(this.type);
+    this.text = '>> ' + this.pokemonTypePipe.transform(this.type);
   }
 
   private getRandomType() {
     const types: PokemonType[] = pokemonTypeInfosMock.map(t => t.type).filter(t => t !== this.type);
     return types.sort(() => Math.random() - 0.5)[0];
   }
-
 
   @HostListener('click')
   changeToType() {

@@ -1,18 +1,16 @@
+import { PokemonService } from './shared/services/pokemon.service';
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectorRef,
-  Component,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {
   NavigationEnd,
   NavigationStart,
   Router,
   RouterModule,
-  RouterOutlet
+  RouterOutlet,
 } from '@angular/router';
-import { filter } from 'rxjs';
+import { Observable, filter } from 'rxjs';
 import { LoadingService } from './shared/services/loading.service';
+import { Pokemon } from './shared/models/pokemon';
 
 @Component({
   selector: 'app-root',
@@ -24,15 +22,19 @@ import { LoadingService } from './shared/services/loading.service';
 export class AppComponent implements OnInit {
   today = new Date();
   isLoading = true;
-  votes = 0;
+  capturesCount = 0;
 
   constructor(
     private router: Router,
     private loadingService: LoadingService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private pokemonService: PokemonService
   ) {}
 
   ngOnInit(): void {
+    this.pokemonService.getCaptures().subscribe(c => {
+      this.capturesCount = c.length;
+    });
     this.setLoading();
     this.startLoading();
     this.stopLoading();
@@ -41,34 +43,27 @@ export class AppComponent implements OnInit {
       this.today = new Date();
     }, 3000);
 
-
     setTimeout(() => {
       this.today = new Date();
     }, 6000);
   }
 
   private setLoading() {
-    this.loadingService.isLoading().subscribe((i) => {
+    this.loadingService.isLoading().subscribe(i => {
       this.isLoading = i;
       this.cd.detectChanges();
     });
   }
 
   private startLoading() {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationStart))
-      .subscribe(() => {
-        this.loadingService.start();
-      });
+    this.router.events.pipe(filter(event => event instanceof NavigationStart)).subscribe(() => {
+      this.loadingService.start();
+    });
   }
 
   private stopLoading() {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.loadingService.stop();
-      });
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+      this.loadingService.stop();
+    });
   }
-
-
 }
