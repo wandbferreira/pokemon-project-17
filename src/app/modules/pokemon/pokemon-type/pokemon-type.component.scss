@@ -7,6 +7,12 @@
   border-radius: 3px;
 }
 
-:host-context(.dropdown-menu) .pokemon-type-icon {
-  border-radius: 50%;
+:host-context(app-pokemon-type-selector) {
+  .pokemon-type {
+    display: none;
+  }
+
+  .pokemon-type-icon {
+    margin-right: 0;
+  }
 }

@@ -8,11 +8,9 @@
     </p>
   </div>
 </a>
-<button
+
+<app-pokemon-type-selector
   *ngIf="canChangeType"
-  class="btn btn-secondary mt-1"
-  appRandomType
   [type]="pokemon.type"
   (typeChange)="setPokemonType($event)">
-  Mudar para ***
-</button>
+</app-pokemon-type-selector>

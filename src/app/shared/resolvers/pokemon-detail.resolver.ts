@@ -14,10 +14,6 @@ export const evolutionsResolver: ResolveFn<Observable<Pokemon[]>> = snapshot => 
   return pokemonService.getEvolutions(Number(snapshot.params['id']));
 };
 
-export const isCapturedResolver: ResolveFn<boolean> = snapshot => {
-  return inject(PokemonService).isCaptured(Number(snapshot.params['id']));
-};
-
 export const trainersResolver: ResolveFn<Observable<string[]>> = () => {
   return of(['Ash Ketchum', 'Misty', 'Brock', 'May']);
 };

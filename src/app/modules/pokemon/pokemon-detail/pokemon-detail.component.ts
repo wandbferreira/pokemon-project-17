@@ -15,7 +15,6 @@ export class PokemonDetailComponent implements OnInit {
   evolutions: Pokemon[] = [];
   trainers: string[] = [];
   enemies = pokemonsMock;
-  isCaptured = false;
 
   constructor(private activatedRoute: ActivatedRoute, private pokemonService: PokemonService) {}
 
@@ -24,12 +23,6 @@ export class PokemonDetailComponent implements OnInit {
       this.pokemon = data['pokemon'];
       this.evolutions = data['evolutions'];
       this.trainers = data['trainers'];
-      this.isCaptured = data['isCaptured'];
     });
-  }
-
-  capture(pokemon: Pokemon) {
-    this.pokemonService.capture(pokemon);
-    this.isCaptured = true;
   }
 }

@@ -1,7 +1,7 @@
-<main id="pokebola" *ngIf="pokemons$ | async as pokemons">
+<main id="pokemon-captures" *ngIf="pokemons$ | async as pokemons">
   <h1 class="mb-4">Pokemons Capturados</h1>
 
-  <div id="pokebola-counter" class="mb-3" [ngPlural]="pokemons.length">
+  <div id="pokemon-captures-counter" class="mb-3" [ngPlural]="pokemons.length">
     Sua pokebola
     <ng-template ngPluralCase="=0">
       está vazia,

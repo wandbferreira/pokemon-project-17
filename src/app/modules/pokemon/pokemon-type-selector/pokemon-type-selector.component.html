@@ -1,0 +1,12 @@
+<ul class="list-inline">
+  <li>
+    <button
+      [attr.aria-label]="'Mudar para ' + (type | pokemonType)"
+      [title]="'Mudar para ' + (type | pokemonType)"
+      (click)="setType(type)"
+      class="btn btn-white"
+      *ngFor="let type of types">
+      <app-pokemon-type [type]="type"></app-pokemon-type>
+    </button>
+  </li>
+</ul>

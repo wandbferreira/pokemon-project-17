@@ -4,11 +4,11 @@ import { Pokemon } from '../../../shared/models/pokemon';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-pokebola',
-  templateUrl: './pokebola.component.html',
+  selector: 'app-pokemon-captures',
+  templateUrl: './pokemon-captures.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokebolaComponent implements OnInit {
+export class PokemonCapturesComponent implements OnInit {
   pokemons$!: Observable<Pokemon[]>;
 
   constructor(private pokemonService: PokemonService) {}

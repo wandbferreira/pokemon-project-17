@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { CaptureDirective } from '../../shared/directives/capture-directive';
 import { PokemonEnemiesPipe } from '../../shared/pipes/pokemon-enemies/pokemon-enemies.pipe';
 import { PokemonTypePipe } from '../../shared/pipes/pokemon-type/pokemon-type.pipe';
 import {
   evolutionsResolver,
-  isCapturedResolver,
   pokemonResolver,
   trainersResolver,
 } from '../../shared/resolvers/pokemon-detail.resolver';
@@ -15,9 +15,9 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { PokemonListFilterComponent } from './pokemon-list-filter/pokemon-list-filter.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { PokemonTypeSelectorComponent } from './pokemon-type-selector/pokemon-type-selector.component';
 import { PokemonTypeComponent } from './pokemon-type/pokemon-type.component';
-import { RandomTypeDirective } from '../../shared/directives/random-type.directive';
-import { PokebolaComponent } from './pokebola/pokebola.component';
+import { PokemonCapturesComponent } from './pokemon-captures/pokemon-captures.component';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'pokebola',
-    component: PokebolaComponent,
+    component: PokemonCapturesComponent,
   },
   {
     path: ':id',
@@ -36,19 +36,19 @@ const routes: Routes = [
       pokemon: pokemonResolver,
       evolutions: evolutionsResolver,
       trainers: trainersResolver,
-      isCaptured: isCapturedResolver,
     },
   },
 ];
 
 @NgModule({
   declarations: [
-    PokebolaComponent,
-    PokemonDetailComponent,
     PokemonListComponent,
     PokemonListFilterComponent,
-    PokemonTypeComponent,
     PokemonCardComponent,
+    PokemonDetailComponent,
+    PokemonTypeComponent,
+    PokemonTypeSelectorComponent,
+    PokemonCapturesComponent,
   ],
   imports: [
     CommonModule,
@@ -57,7 +57,7 @@ const routes: Routes = [
     PokemonTypePipe,
     PokemonTypeColorPipe,
     PokemonEnemiesPipe,
-    RandomTypeDirective,
+    CaptureDirective,
   ],
 })
 export class PokemonModule {}
