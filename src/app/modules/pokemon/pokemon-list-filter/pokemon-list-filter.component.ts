@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { pokemonTypeInfosMock } from '../../../../mocks/pokemon-type-infos.mock';
 import { PokemonType } from '../../../shared/models/pokemon-type';
@@ -11,15 +11,14 @@ export interface PokemonFilter {
 @Component({
   selector: 'app-pokemon-list-filter',
   templateUrl: './pokemon-list-filter.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonListFilterComponent {
-  @Input() filter: PokemonFilter = {
-    name: '',
-  };
+export class PokemonListFilterComponent  {
+  @Input() filter!: PokemonFilter;
 
   typeInfos = pokemonTypeInfosMock;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   filterByName(name: string) {
     this.filter.name = name;

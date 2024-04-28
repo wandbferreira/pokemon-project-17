@@ -15,6 +15,7 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
 import { PokemonListFilterComponent } from './pokemon-list-filter/pokemon-list-filter.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonTypeComponent } from './pokemon-type/pokemon-type.component';
+import { RandomTypeDirective } from '../../shared/directives/random-type.directive';
 
 const routes: Routes = [
   {
@@ -48,6 +49,7 @@ const routes: Routes = [
     PokemonTypePipe,
     PokemonTypeColorPipe,
     PokemonEnemiesPipe,
+    RandomTypeDirective,
   ],
 })
 export class PokemonModule {}

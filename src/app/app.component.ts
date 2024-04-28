@@ -1,19 +1,17 @@
 import { CommonModule } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  OnInit,
+  OnInit
 } from '@angular/core';
 import {
   NavigationEnd,
   NavigationStart,
-  RouteConfigLoadEnd,
   Router,
   RouterModule,
-  RouterOutlet,
+  RouterOutlet
 } from '@angular/router';
-import { Observable, delay, filter } from 'rxjs';
+import { filter } from 'rxjs';
 import { LoadingService } from './shared/services/loading.service';
 
 @Component({
@@ -26,6 +24,7 @@ import { LoadingService } from './shared/services/loading.service';
 export class AppComponent implements OnInit {
   today = new Date();
   isLoading = true;
+  votes = 0;
 
   constructor(
     private router: Router,
@@ -37,6 +36,15 @@ export class AppComponent implements OnInit {
     this.setLoading();
     this.startLoading();
     this.stopLoading();
+
+    setTimeout(() => {
+      this.today = new Date();
+    }, 3000);
+
+
+    setTimeout(() => {
+      this.today = new Date();
+    }, 6000);
   }
 
   private setLoading() {
@@ -61,4 +69,6 @@ export class AppComponent implements OnInit {
         this.loadingService.stop();
       });
   }
+
+
 }

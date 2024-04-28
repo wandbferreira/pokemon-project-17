@@ -2,7 +2,7 @@ import { ApplicationConfig } from '@angular/core';
 import {
   provideRouter,
   withHashLocation,
-  withInMemoryScrolling,
+  withInMemoryScrolling
 } from '@angular/router';
 
 import { routes } from './app.routes';

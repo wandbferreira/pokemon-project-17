@@ -19,7 +19,7 @@
   }
 }
 
-:host(.animate) {
+:host(.to-dark) {
   .card {
     outline: none;
 
@@ -30,10 +30,5 @@
       background: black;
       color: white;
     }
-  }
-
-  &:hover img,
-  &:focus img {
-    transform: scale(1.2);
   }
 }

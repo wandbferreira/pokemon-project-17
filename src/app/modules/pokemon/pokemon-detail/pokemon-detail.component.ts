@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pokemon } from '../../../shared/models/pokemon';
 import { pokemonsMock } from '../../../../mocks/pokemons.mock';
+import { Pokemon } from '../../../shared/models/pokemon';
 
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
   styleUrl: './pokemon-detail.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PokemonDetailComponent implements OnInit {
   pokemon?: Pokemon;
