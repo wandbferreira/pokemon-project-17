@@ -9,6 +9,7 @@
   </div>
 </a>
 <button
+  *ngIf="canChangeType"
   class="btn btn-secondary mt-1"
   appRandomType
   [type]="pokemon.type"

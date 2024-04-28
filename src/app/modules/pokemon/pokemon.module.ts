@@ -6,6 +6,7 @@ import { PokemonEnemiesPipe } from '../../shared/pipes/pokemon-enemies/pokemon-e
 import { PokemonTypePipe } from '../../shared/pipes/pokemon-type/pokemon-type.pipe';
 import {
   evolutionsResolver,
+  isCapturedResolver,
   pokemonResolver,
   trainersResolver,
 } from '../../shared/resolvers/pokemon-detail.resolver';
@@ -16,11 +17,16 @@ import { PokemonListFilterComponent } from './pokemon-list-filter/pokemon-list-f
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonTypeComponent } from './pokemon-type/pokemon-type.component';
 import { RandomTypeDirective } from '../../shared/directives/random-type.directive';
+import { PokebolaComponent } from './pokebola/pokebola.component';
 
 const routes: Routes = [
   {
     path: '',
     component: PokemonListComponent,
+  },
+  {
+    path: 'pokebola',
+    component: PokebolaComponent,
   },
   {
     path: ':id',
@@ -30,12 +36,14 @@ const routes: Routes = [
       pokemon: pokemonResolver,
       evolutions: evolutionsResolver,
       trainers: trainersResolver,
+      isCaptured: isCapturedResolver,
     },
   },
 ];
 
 @NgModule({
   declarations: [
+    PokebolaComponent,
     PokemonDetailComponent,
     PokemonListComponent,
     PokemonListFilterComponent,

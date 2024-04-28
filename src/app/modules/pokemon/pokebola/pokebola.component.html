@@ -1,0 +1,23 @@
+<main id="pokebola">
+  <h1 class="mb-4">Pokemons Capturados</h1>
+
+  <div id="pokebola-counter" class="mb-3" [ngPlural]="pokemons.length">
+    Sua pokebola
+    <ng-template ngPluralCase="=0">
+      está vazia,
+      <a routerLink="/pokemons">capture aqui</a>.
+    </ng-template>
+    <ng-template ngPluralCase="=1">possui 1 pokemon.</ng-template>
+    <ng-template ngPluralCase="other">possui {{ pokemons.length }} pokemons.</ng-template>
+  </div>
+
+  <div class="mb-3" *ngIf="pokemons.length > 0">
+    <button class="btn btn-secondary" (click)="free()">Liberar Todos</button>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let pokemon of pokemons" class="mb-4 col-12 col-sm-6 col-md-4 col-lg-3">
+      <app-pokemon-card [canChangeType]="false" [pokemon]="pokemon"></app-pokemon-card>
+    </div>
+  </div>
+</main>

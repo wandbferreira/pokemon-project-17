@@ -14,7 +14,7 @@ export const routes: Routes = [
     loadComponent: () =>
       from(import('./modules/login/login.component')).pipe(
         map(c => c.LoginComponent),
-        delay(800),
+        delay(800)
       ),
   },
   {
@@ -23,15 +23,13 @@ export const routes: Routes = [
     loadComponent: () =>
       from(import('./modules/contact/contact.component')).pipe(
         map(c => c.ContactComponent),
-        delay(800),
+        delay(800)
       ),
   },
   {
     path: 'pokemons',
     loadChildren: () =>
-      from(import('./modules/pokemon/pokemon.module')).pipe(
-        map(m => m.PokemonModule),
-      ),
+      from(import('./modules/pokemon/pokemon.module')).pipe(map(m => m.PokemonModule)),
   },
   {
     path: 'treinadores',
@@ -39,7 +37,7 @@ export const routes: Routes = [
     loadChildren: () =>
       from(import('./modules/trainer/trainer.module')).pipe(
         map(c => c.TrainerModule),
-        delay(200),
+        delay(200)
       ),
   },
   {
@@ -47,7 +45,7 @@ export const routes: Routes = [
     loadComponent: () =>
       from(import('./modules/not-found/not-found.component')).pipe(
         map(c => c.NotFoundComponent),
-        delay(800),
+        delay(800)
       ),
   },
 ];

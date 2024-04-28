@@ -24,7 +24,7 @@ export class PokemonListComponent implements OnInit {
   private setFilterByParams() {
     this.route.queryParams.subscribe(params => {
       this.filter = {
-        name: params['name'].toLowerCase() ?? '',
+        name: params['name']?.toLowerCase() ?? '',
         type: params['type'] ?? undefined,
       };
 
