@@ -1,4 +1,4 @@
-.pokemon-type-icon {
+.type-icon {
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -7,12 +7,18 @@
   border-radius: 3px;
 }
 
+:host(.rounded) {
+  .type-icon {
+    border-radius: 50%;
+  }
+}
+
 :host-context(app-pokemon-type-selector) {
-  .pokemon-type {
+  .type {
     display: none;
   }
 
-  .pokemon-type-icon {
+  .type-icon {
     margin-right: 0;
   }
 }

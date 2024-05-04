@@ -2,17 +2,30 @@
   <div class="col-12 col-md-9">
     <div class="input-group mb-3">
       <span class="input-group-text">
-        <img src="assets/icons/search-icon.svg" width="16" height="16" alt="Buscar" aria-hidden="true">
+        <img
+          src="assets/icons/search-icon.svg"
+          width="16"
+          height="16"
+          alt="Buscar"
+          aria-hidden="true" />
       </span>
-      <input [ngModel]="filter.name" (ngModelChange)="filterByName($event)" type="text" class="form-control"
-        placeholder="Buscar" id="pokemon-list-search">
+      <input
+        [ngModel]="filter.name"
+        (ngModelChange)="filterByName($event)"
+        type="text"
+        class="form-control"
+        placeholder="Buscar"
+        id="pokemon-list-search" />
     </div>
   </div>
 
   <div class="dropdown col-12 col-md-3 mb-3">
-    <button class="w-100 text-left btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+    <button
+      class="w-100 text-left btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
       aria-expanded="false">
-      Tipo: {{ filter.type ? (filter.type | pokemonType) : 'Todos' }}
+      Tipo: {{ filter.type ? (filter.type | pokemonType) : "Todos" }}
     </button>
 
     <ul class="dropdown-menu">
@@ -24,7 +37,7 @@
 
       <li *ngFor="let typeInfo of typeInfos">
         <button class="dropdown-item" (click)="filterByType(typeInfo.type)">
-          <app-pokemon-type [type]="typeInfo.type"></app-pokemon-type>
+          <app-pokemon-type class="rounded" [type]="typeInfo.type"></app-pokemon-type>
         </button>
       </li>
     </ul>
