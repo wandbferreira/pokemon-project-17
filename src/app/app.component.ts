@@ -2,6 +2,7 @@ import { PokemonService } from './shared/services/pokemon.service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {
+  NavigationCancel,
   NavigationEnd,
   NavigationStart,
   Router,
@@ -38,14 +39,6 @@ export class AppComponent implements OnInit {
     this.setLoading();
     this.startLoading();
     this.stopLoading();
-
-    setTimeout(() => {
-      this.today = new Date();
-    }, 3000);
-
-    setTimeout(() => {
-      this.today = new Date();
-    }, 6000);
   }
 
   private setLoading() {
@@ -62,8 +55,10 @@ export class AppComponent implements OnInit {
   }
 
   private stopLoading() {
-    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
-      this.loadingService.stop();
-    });
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
+      .subscribe(() => {
+        this.loadingService.stop();
+      });
   }
 }

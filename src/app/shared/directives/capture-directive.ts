@@ -14,7 +14,10 @@ export class CaptureDirective implements OnChanges {
   @HostBinding('class.btn-secondary') @HostBinding('disabled') isCaptured = false;
   @HostBinding('innerHTML') text = 'Capturar';
 
-  constructor(private pokemonService: PokemonService, private router: Router) {}
+  constructor(
+    private pokemonService: PokemonService,
+    private router: Router,
+  ) {}
 
   ngOnChanges() {
     this.isCaptured = this.pokemonService.isCaptured(this.pokemonId);

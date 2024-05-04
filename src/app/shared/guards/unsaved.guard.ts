@@ -1,7 +1,9 @@
 import { CanDeactivateFn, MaybeAsync } from '@angular/router';
 import { Observable, map } from 'rxjs';
 
-export const unsavedGuard: CanDeactivateFn<UnsavedComponent> = function (componente): MaybeAsync<boolean> {
+export const unsavedGuard: CanDeactivateFn<UnsavedComponent> = function (
+  componente,
+): MaybeAsync<boolean> {
   if (componente.saved) {
     return true;
   }
@@ -16,7 +18,7 @@ export const unsavedGuard: CanDeactivateFn<UnsavedComponent> = function (compone
     map(() => {
       console.log('foi!');
       return true;
-    })
+    }),
   );
 };
 

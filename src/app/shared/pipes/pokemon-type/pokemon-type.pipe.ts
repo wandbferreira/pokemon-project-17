@@ -4,12 +4,10 @@ import { PokemonType } from '../../models/pokemon-type';
 
 @Pipe({
   name: 'pokemonType',
-  standalone: true
+  standalone: true,
 })
 export class PokemonTypePipe implements PipeTransform {
-
   transform(type: PokemonType): string | undefined {
     return pokemonTypeInfosMock.find(t => t.type === type)?.name ?? '?';
   }
-
 }

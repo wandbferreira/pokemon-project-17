@@ -14,16 +14,17 @@ export const routes: Routes = [
     loadComponent: () =>
       from(import('./modules/login/login.component')).pipe(
         map(c => c.LoginComponent),
-        delay(1800)
+        delay(200)
       ),
   },
   {
     path: 'contato',
+    canActivate: [loggedGuard],
     canDeactivate: [unsavedGuard],
     loadComponent: () =>
       from(import('./modules/contact/contact.component')).pipe(
         map(c => c.ContactComponent),
-        delay(1800)
+        delay(400)
       ),
   },
   {
@@ -33,11 +34,10 @@ export const routes: Routes = [
   },
   {
     path: 'treinadores',
-    canActivate: [loggedGuard],
     loadChildren: () =>
       from(import('./modules/trainer/trainer.module')).pipe(
         map(c => c.TrainerModule),
-        delay(1200)
+        delay(700)
       ),
   },
   {

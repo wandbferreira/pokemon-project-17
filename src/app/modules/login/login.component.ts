@@ -9,7 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
-  constructor(private router: Router, private route: ActivatedRoute, private route2: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private route2: ActivatedRoute
+  ) {}
 
   login(email: string) {
     const x = 1;

@@ -1,7 +1,7 @@
-import { PokemonType } from "./pokemon-type";
+import { PokemonType } from './pokemon-type';
 
 export interface PokemonTypeInfo {
-  type: PokemonType,
-  color: string,
-  name: string,
+  type: PokemonType;
+  color: string;
+  name: string;
 }

@@ -4,11 +4,10 @@ import { pokemonTypeInfosMock } from '../../../../mocks/pokemon-type-infos.mock'
 
 @Pipe({
   name: 'pokemonTypeColor',
-  standalone: true
+  standalone: true,
 })
 export class PokemonTypeColorPipe implements PipeTransform {
   transform(type: PokemonType): string {
     return pokemonTypeInfosMock.find(t => t.type === type)?.color ?? 'lightgray';
   }
-
 }
