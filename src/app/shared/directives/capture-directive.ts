@@ -1,8 +1,9 @@
-import { Directive, HostBinding, HostListener, Input, OnChanges, OnInit } from '@angular/core';
+import { Directive, HostBinding, HostListener, Input, OnChanges } from '@angular/core';
+import { Router } from '@angular/router';
+import { Pokemon } from '../models/pokemon';
 import { PokemonTypeColorPipe } from '../pipes/pokemon-type-color/pokemon-type-color.pipe';
 import { PokemonTypePipe } from '../pipes/pokemon-type/pokemon-type.pipe';
 import { PokemonService } from '../services/pokemon.service';
-import { Router } from '@angular/router';
 
 @Directive({
   selector: '[appCapture]',
@@ -10,26 +11,21 @@ import { Router } from '@angular/router';
   providers: [PokemonTypeColorPipe, PokemonTypePipe],
 })
 export class CaptureDirective implements OnChanges {
-  @Input('appCapture') pokemonId!: number;
+  @Input('appCapture') pokemon!: Pokemon;
   @HostBinding('class.btn-secondary') @HostBinding('disabled') isCaptured = false;
   @HostBinding('innerHTML') text = 'Capturar';
 
-  constructor(
-    private pokemonService: PokemonService,
-    private router: Router,
-  ) {}
+  constructor(private pokemonService: PokemonService, private router: Router) {}
 
   ngOnChanges() {
-    this.isCaptured = this.pokemonService.isCaptured(this.pokemonId);
+    this.isCaptured = this.pokemonService.isCaptured(this.pokemon.id);
     this.text = this.isCaptured ? 'Capturado' : 'Capturar';
   }
 
   @HostListener('click')
   capture() {
-    this.pokemonService.getPokemon(this.pokemonId).subscribe(pokemon => {
-      this.pokemonService.capture(pokemon);
-      this.router.navigate(['pokemons', 'pokebola']);
-    });
+    this.pokemonService.capture(this.pokemon);
+    this.router.navigate(['pokemons', 'pokebola']);
     this.isCaptured = true;
     this.text = 'Capturado';
   }

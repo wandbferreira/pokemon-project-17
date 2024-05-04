@@ -55,9 +55,9 @@ export class PokemonService {
   capture(pokemon: Pokemon) {
     console.log('Te capturei!', pokemon.name);
 
-    const captures: Pokemon[] = JSON.parse(localStorage.getItem('captures') || '[]') || [];
+    const captures = this.getCapturesInStorage();
     captures.push(pokemon);
-    localStorage.setItem('captures', JSON.stringify(captures));
+    this.setCapturesInStorage(captures);
     this.captures$.next(captures);
   }
 
@@ -66,7 +66,7 @@ export class PokemonService {
    */
   getCaptures(): Observable<Pokemon[]> {
     if (!this.captures$) {
-      const captures: Pokemon[] = JSON.parse(localStorage.getItem('captures') || '[]') || [];
+      const captures = this.getCapturesInStorage();
       this.captures$ = new BehaviorSubject<Pokemon[]>(captures);
     }
 
@@ -77,8 +77,7 @@ export class PokemonService {
    * Retorna true se o pokemon foi capturado pelo usuário
    */
   isCaptured(pokemonId: number): boolean {
-    const captures: Pokemon[] = JSON.parse(localStorage.getItem('captures') || '[]') || [];
-
+    const captures = this.getCapturesInStorage();
     return captures.map(c => c.id).includes(pokemonId);
   }
 
@@ -88,5 +87,13 @@ export class PokemonService {
   freeCaptures() {
     localStorage.setItem('captures', '[]');
     this.captures$.next([]);
+  }
+
+  private getCapturesInStorage(): Pokemon[] {
+    return JSON.parse(localStorage.getItem('captures') || '[]') || [];
+  }
+
+  private setCapturesInStorage(captures: Pokemon[]) {
+    localStorage.setItem('captures', JSON.stringify(captures));
   }
 }
