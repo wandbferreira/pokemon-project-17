@@ -14,7 +14,7 @@ export const routes: Routes = [
     loadComponent: () =>
       from(import('./modules/login/login.component')).pipe(
         map(c => c.LoginComponent),
-        delay(800)
+        delay(1800)
       ),
   },
   {
@@ -23,7 +23,7 @@ export const routes: Routes = [
     loadComponent: () =>
       from(import('./modules/contact/contact.component')).pipe(
         map(c => c.ContactComponent),
-        delay(800)
+        delay(1800)
       ),
   },
   {
@@ -37,7 +37,7 @@ export const routes: Routes = [
     loadChildren: () =>
       from(import('./modules/trainer/trainer.module')).pipe(
         map(c => c.TrainerModule),
-        delay(200)
+        delay(1200)
       ),
   },
   {

@@ -2,6 +2,7 @@ import { Directive, HostBinding, HostListener, Input, OnChanges, OnInit } from '
 import { PokemonTypeColorPipe } from '../pipes/pokemon-type-color/pokemon-type-color.pipe';
 import { PokemonTypePipe } from '../pipes/pokemon-type/pokemon-type.pipe';
 import { PokemonService } from '../services/pokemon.service';
+import { Router } from '@angular/router';
 
 @Directive({
   selector: '[appCapture]',
@@ -10,14 +11,10 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class CaptureDirective implements OnChanges {
   @Input('appCapture') pokemonId!: number;
-
-  @HostBinding('class.btn-secondary')
-  @HostBinding('disabled')
-  isCaptured = false;
-
+  @HostBinding('class.btn-secondary') @HostBinding('disabled') isCaptured = false;
   @HostBinding('innerHTML') text = 'Capturar';
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private router: Router) {}
 
   ngOnChanges() {
     this.isCaptured = this.pokemonService.isCaptured(this.pokemonId);
@@ -28,6 +25,7 @@ export class CaptureDirective implements OnChanges {
   capture() {
     this.pokemonService.getPokemon(this.pokemonId).subscribe(pokemon => {
       this.pokemonService.capture(pokemon);
+      this.router.navigate(['pokemons', 'pokebola']);
     });
     this.isCaptured = true;
     this.text = 'Capturado';

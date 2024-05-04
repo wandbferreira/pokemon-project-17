@@ -17,7 +17,7 @@ import { PokemonListFilterComponent } from './pokemon-list-filter/pokemon-list-f
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonTypeSelectorComponent } from './pokemon-type-selector/pokemon-type-selector.component';
 import { PokemonTypeComponent } from './pokemon-type/pokemon-type.component';
-import { PokemonCapturesComponent } from './pokemon-captures/pokemon-captures.component';
+import { PokemonPokebolaComponent } from './pokemon-pokebola/pokemon-pokebola.component';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'pokebola',
-    component: PokemonCapturesComponent,
+    component: PokemonPokebolaComponent,
   },
   {
     path: ':id',
@@ -48,7 +48,7 @@ const routes: Routes = [
     PokemonDetailComponent,
     PokemonTypeComponent,
     PokemonTypeSelectorComponent,
-    PokemonCapturesComponent,
+    PokemonPokebolaComponent,
   ],
   imports: [
     CommonModule,

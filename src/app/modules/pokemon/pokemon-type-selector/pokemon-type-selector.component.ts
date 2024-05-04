@@ -21,12 +21,11 @@ export class PokemonTypeSelectorComponent implements OnChanges {
   types: PokemonType[] = [];
 
   ngOnChanges(): void {
-    this.types = this.getRandomTypes();
+    this.types = this.getOtherTypes(this.type);
   }
 
-  private getRandomTypes(): PokemonType[] {
-    const types: PokemonType[] = pokemonTypeInfosMock.map(t => t.type).filter(t => t !== this.type);
-    return types.sort(() => Math.random() - 0.5);
+  private getOtherTypes(type: PokemonType): PokemonType[] {
+    return pokemonTypeInfosMock.map(t => t.type).filter(t => t !== type);
   }
 
   setType(type: PokemonType) {

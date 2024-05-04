@@ -10,7 +10,7 @@ import { PokemonType } from '../../../shared/models/pokemon-type';
 })
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;
-  @Input() canChangeType = true;
+  @Input() canCapture = true;
   @Output() pokemonChange = new EventEmitter<Pokemon>();
 
   setPokemonType(type: PokemonType) {
