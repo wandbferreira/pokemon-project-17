@@ -4,6 +4,10 @@
       <div class="card">
         <form class="card-body" (submit)="login(email.value)">
           <h3 class="card-title text-center mb-4">Login</h3>
+
+          <div class="alert alert-danger" role="alert">
+            Para acessar essa página você precisa entrar com seu email.
+          </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input
@@ -16,16 +20,8 @@
               placeholder="Digite seu email"
               required />
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Senha</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="Digite sua senha" />
-          </div>
           <div class="d-grid">
-            <button type="submit" class="btn btn-primary">OK</button>
+            <button type="submit" class="btn btn-primary" [disabled]="email.invalid">Entrar</button>
           </div>
         </form>
       </div>

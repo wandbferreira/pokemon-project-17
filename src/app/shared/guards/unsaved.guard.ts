@@ -2,7 +2,7 @@ import { CanDeactivateFn, MaybeAsync } from '@angular/router';
 import { Observable, map } from 'rxjs';
 
 export const unsavedGuard: CanDeactivateFn<UnsavedComponent> = function (
-  componente,
+  componente
 ): MaybeAsync<boolean> {
   if (componente.saved) {
     return true;
@@ -10,15 +10,13 @@ export const unsavedGuard: CanDeactivateFn<UnsavedComponent> = function (
   const cancel = !confirm('Quer Salvar?\n Clique em OK para salvar e CANCELAR para sair');
 
   if (cancel) {
-    alert('tchau!');
     return true;
   }
 
   return componente.save().pipe(
     map(() => {
-      console.log('foi!');
       return true;
-    }),
+    })
   );
 };
 

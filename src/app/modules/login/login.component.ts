@@ -20,6 +20,6 @@ export class LoginComponent {
     this.route.data;
     this.route2.data;
     localStorage.setItem('userEmail', email);
-    this.router.navigate(['']);
+    this.router.navigate(['contato']);
   }
 }

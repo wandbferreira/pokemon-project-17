@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../../shared/models/pokemon';
 import { Observable } from 'rxjs';
 import { pokemonsMock } from '../../../../mocks/pokemons.mock';
+import { Confirmable } from '../../../shared/decorators/confirmable.decorator';
 
 @Component({
   selector: 'app-pokemon-pokebola',
@@ -19,6 +20,7 @@ export class PokemonPokebolaComponent implements OnInit {
     this.pokemons$ = this.pokemonService.getCaptures();
   }
 
+  @Confirmable('Deseja realmente libertar todos os pokemons?')
   free() {
     this.pokemonService.freeCaptures();
   }
