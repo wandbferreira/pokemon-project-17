@@ -25,8 +25,11 @@ export class CaptureDirective implements OnChanges {
   @HostListener('click')
   capture() {
     this.pokemonService.capture(this.pokemon);
-    this.router.navigate(['pokemons', 'pokebola']);
     this.isCaptured = true;
     this.text = 'Capturado';
+
+    setTimeout(() => {
+      this.router.navigate(['pokemons', 'pokebola']);
+    }, 400);
   }
 }

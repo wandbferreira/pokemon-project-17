@@ -1,6 +1,14 @@
 <main id="pokemon-captures" *ngIf="pokemons$ | async as pokemons">
   <h1 class="mb-4">Pokemons Capturados</h1>
 
+  <div class="text-center my-5" *ngIf="pokemons.length >= total">
+    <h3 class="text-primary">Parabéns!</h3>
+    <p>Você capturou todos os pokemons disponíveis.</p>
+
+    <img src="assets/images/trophy.png" width="200" alt="Trofeu" class="mb-5" />
+    <hr />
+  </div>
+
   Sua pokebola
   <span id="pokemon-captures-counter" class="mb-3" [ngPlural]="pokemons.length">
     <ng-template ngPluralCase="=0"> está vazia, <a routerLink="../">capture aqui</a>. </ng-template>
