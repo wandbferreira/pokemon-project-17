@@ -17,4 +17,9 @@ export class PokemonCardComponent {
     this.pokemon!.type = type;
     this.pokemonChange.emit(this.pokemon);
   }
+
+  toUpperCase(str: string) {
+    console.log('upercase...');
+    return str.toUpperCase();
+  }
 }

@@ -29,8 +29,8 @@ export class PokemonListComponent implements OnInit {
     this.pokemons = [...this.pokemons];
   }
 
-  toUpperCase(str: string) {
-    // console.log('uper');
-    return str.toUpperCase();
+  toTitlecase(str: string) {
+    console.log('titlecase...');
+    return str[0].toUpperCase() + str.toLowerCase().slice(1);
   }
 }

@@ -1,5 +1,5 @@
 <main id="pokemon-list" *ngIf="pokemons | pokemonFilter : filter as filteredPokemons">
-  <h1 class="mb-4">{{ toUpperCase("Pokemons") }}</h1>
+  <h1 class="mb-4">{{ toTitlecase("pokemons") }}</h1>
 
   <!-- Filtro -->
   <app-pokemon-filters [(filter)]="filter"></app-pokemon-filters>
