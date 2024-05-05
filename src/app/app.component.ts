@@ -1,4 +1,3 @@
-import { PokemonService } from './shared/services/pokemon.service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {
@@ -9,9 +8,9 @@ import {
   RouterModule,
   RouterOutlet,
 } from '@angular/router';
-import { Observable, filter } from 'rxjs';
+import { filter } from 'rxjs';
 import { LoadingService } from './shared/services/loading.service';
-import { Pokemon } from './shared/models/pokemon';
+import { PokemonService } from './shared/services/pokemon.service';
 
 @Component({
   selector: 'app-root',
@@ -42,8 +41,8 @@ export class AppComponent implements OnInit {
   }
 
   private setLoading() {
-    this.loadingService.isLoading().subscribe(i => {
-      this.isLoading = i;
+    this.loadingService.isLoading().subscribe(loading => {
+      this.isLoading = loading;
       this.cd.detectChanges();
     });
   }

@@ -1,8 +1,10 @@
 <main id="pokemon-list">
   <h1 class="mb-4">{{ toUpperCase("Pokemons") }}</h1>
 
+  <!-- Filtro -->
   <app-pokemon-list-filter [filter]="filter"></app-pokemon-list-filter>
 
+  <!-- Counter -->
   <div id="pokemon-list-counter" class="mb-3" [ngPlural]="pokemons.length">
     <ng-template ngPluralCase="=0">
       A busca
@@ -13,6 +15,7 @@
     <ng-template ngPluralCase="other">{{ pokemons.length }} pokemons encontrados.</ng-template>
   </div>
 
+  <!-- Lista -->
   <div class="row">
     <div *ngFor="let pokemon of pokemons" class="mb-4 col-12 col-sm-6 col-md-4 col-lg-3">
       <app-pokemon-card

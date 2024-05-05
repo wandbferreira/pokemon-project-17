@@ -2,7 +2,7 @@
   <h1 class="mb-4">Treinadores</h1>
 
   <div class="card col-md-8 offset-md-2 my-3">
-    <img src="assets/images/trainers/1.png" alt="Ash ketchum" class="card-img-top img-515x686">
+    <img src="assets/images/trainers/1.png" alt="Ash ketchum" class="card-img-top img-515x686" />
     <div class="card-body">
       <h2 class="card-title mx-3">{{ trainer.name }}</h2>
       <ul class="list-group list-group-flush">
@@ -10,10 +10,13 @@
         <li class="list-group-item">Localização: {{ trainer.location }}</li>
         <li class="list-group-item">
           <h5>Time</h5>
-          <a [routerLink]="['/pokemons', 1]">Bulbasaur</a>,
-          <a [routerLink]="['/pokemons', 4]">Charmander</a>,
-          <a [routerLink]="['/pokemons', 7]">Squirtle</a>,
-          <a [routerLink]="['/pokemons', 25]">Pikachu</a>
+
+          <ul class="list-inline">
+            <li class="list-inline-item" *ngFor="let pokemon of team">
+              &bull; <a [routerLink]="['/pokemons', pokemon.id]">{{ pokemon.name }}</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { pokemonsMock } from '../../../../mocks/pokemons.mock';
 import { Pokemon } from '../../../shared/models/pokemon';
-import { PokemonService } from '../../../shared/services/pokemon.service';
+import { TrainerService } from '../../../shared/services/trainer.service';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -15,14 +15,17 @@ export class PokemonDetailComponent implements OnInit {
   evolutions: Pokemon[] = [];
   trainers: string[] = [];
   enemies = pokemonsMock;
+  topTrainer$ = this.trainerService.topTrainer;
 
-  constructor(private activatedRoute: ActivatedRoute, private pokemonService: PokemonService) {}
+  constructor(private activatedRoute: ActivatedRoute, private trainerService: TrainerService) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
       this.pokemon = data['pokemon'];
       this.evolutions = data['evolutions'];
       this.trainers = data['trainers'];
+
+      console.log('[POKEMON-DETAIL] Melhor treinador aqui eh: ', this.trainerService.topTrainer);
     });
   }
 }

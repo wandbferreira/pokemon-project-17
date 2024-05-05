@@ -13,7 +13,7 @@ export interface PokemonFilter {
   templateUrl: './pokemon-list-filter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonListFilterComponent  {
+export class PokemonListFilterComponent {
   @Input() filter!: PokemonFilter;
 
   typeInfos = pokemonTypeInfosMock;

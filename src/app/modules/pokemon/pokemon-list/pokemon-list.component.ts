@@ -1,3 +1,4 @@
+import { TrainerService } from './../../../shared/services/trainer.service';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { pokemonsMock } from '../../../../mocks/pokemons.mock';
@@ -15,10 +16,18 @@ export class PokemonListComponent implements OnInit {
     name: '',
   };
 
-  constructor(private route: ActivatedRoute, private cd: ChangeDetectorRef) {}
+  constructor(
+    private route: ActivatedRoute,
+    private cd: ChangeDetectorRef,
+    private trainerService: TrainerService
+  ) {}
 
   ngOnInit(): void {
+    // TODO: Mover para filter
     this.setFilterByParams();
+
+    this.trainerService.topTrainer = 'Misty';
+    console.log('[POKEMON-LIST] Melhor treinador aqui eh: ', this.trainerService.topTrainer);
   }
 
   private setFilterByParams() {
