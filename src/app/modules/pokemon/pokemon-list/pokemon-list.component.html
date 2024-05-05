@@ -1,27 +1,27 @@
-<main id="pokemon-list">
+<main id="pokemon-list" *ngIf="pokemons | pokemonFilter : filter as filteredPokemons">
   <h1 class="mb-4">{{ toUpperCase("Pokemons") }}</h1>
 
   <!-- Filtro -->
-  <app-pokemon-list-filter [filter]="filter"></app-pokemon-list-filter>
+  <app-pokemon-filters [(filter)]="filter"></app-pokemon-filters>
 
   <!-- Counter -->
-  <div id="pokemon-list-counter" class="mb-3" [ngPlural]="pokemons.length">
+  <div id="pokemon-list-counter" class="mb-3" [ngPlural]="filteredPokemons.length">
     <ng-template ngPluralCase="=0">
       A busca
       <ng-container *ngIf="filter.name">por "{{ filter.name }}"</ng-container>
       não encontrou nenhum pokemon.
     </ng-template>
     <ng-template ngPluralCase="=1">1 pokemon encontrado.</ng-template>
-    <ng-template ngPluralCase="other">{{ pokemons.length }} pokemons encontrados.</ng-template>
+    <ng-template ngPluralCase="other">
+      {{ filteredPokemons.length }} pokemons encontrados.
+    </ng-template>
   </div>
 
   <!-- Lista -->
   <div class="row">
-    <div *ngFor="let pokemon of pokemons" class="mb-4 col-12 col-sm-6 col-md-4 col-lg-3">
-      <app-pokemon-card
-        class="to-dark"
-        [pokemon]="pokemon"
-        (pokemonChange)="setPokemons(filter)"></app-pokemon-card>
+    <div *ngFor="let pokemon of filteredPokemons" class="mb-4 col-12 col-sm-6 col-md-4 col-lg-3">
+      <app-pokemon-card class="to-dark" [pokemon]="pokemon" (pokemonChange)="refreshPokemons()">
+      </app-pokemon-card>
     </div>
   </div>
 </main>

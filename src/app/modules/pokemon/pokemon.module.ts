@@ -8,21 +8,26 @@ import { PokemonTypePipe } from '../../shared/pipes/pokemon-type/pokemon-type.pi
 import {
   evolutionsResolver,
   pokemonResolver,
+  pokemonsResolver,
   trainersResolver,
-} from '../../shared/resolvers/pokemon-detail.resolver';
+} from '../../shared/resolvers/pokemon.resolver';
 import { PokemonTypeColorPipe } from './../../shared/pipes/pokemon-type-color/pokemon-type-color.pipe';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
-import { PokemonListFilterComponent } from './pokemon-list-filter/pokemon-list-filter.component';
+import { PokemonFiltersComponent } from './pokemon-filters/pokemon-filters.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonTypeSelectorComponent } from './pokemon-type-selector/pokemon-type-selector.component';
 import { PokemonTypeComponent } from './pokemon-type/pokemon-type.component';
 import { PokemonPokebolaComponent } from './pokemon-pokebola/pokemon-pokebola.component';
+import { PokemonFilterPipe } from '../../shared/pipes/pokemon-filter/pokemon-filter.pipe';
 
 const routes: Routes = [
   {
     path: '',
     component: PokemonListComponent,
+    resolve: {
+      pokemons: pokemonsResolver,
+    },
   },
   {
     path: 'pokebola',
@@ -43,7 +48,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     PokemonListComponent,
-    PokemonListFilterComponent,
+    PokemonFiltersComponent,
     PokemonCardComponent,
     PokemonDetailComponent,
     PokemonTypeComponent,
@@ -57,6 +62,7 @@ const routes: Routes = [
     PokemonTypePipe,
     PokemonTypeColorPipe,
     PokemonEnemiesPipe,
+    PokemonFilterPipe,
     CaptureDirective,
   ],
 })
