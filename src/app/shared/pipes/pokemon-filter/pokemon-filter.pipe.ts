@@ -9,7 +9,7 @@ import { Pokemon } from '../../models/pokemon';
 })
 export class PokemonFilterPipe implements PipeTransform {
   transform(pokemons: Pokemon[], filter: PokemonFilter): Pokemon[] {
-    console.log('aff');
+    // console.log('filterPipe...');
     const { name, type } = filter;
 
     return pokemons.filter(pokemon => {
