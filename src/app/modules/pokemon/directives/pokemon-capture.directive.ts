@@ -3,15 +3,15 @@ import { Router } from '@angular/router';
 import { Pokemon } from '../../../shared/models/pokemon';
 import { PokemonTypeColorPipe } from '../pipes/pokemon-type-color.pipe';
 import { PokemonTypePipe } from '../pipes/pokemon-type.pipe';
-import { PokemonService } from '../../../shared/services/pokemon.service';
+import { PokemonService } from '../pokemon.service';
 
 @Directive({
-  selector: '[appCapture]',
+  selector: '[appPokemonCapture]',
   standalone: true,
   providers: [PokemonTypeColorPipe, PokemonTypePipe],
 })
-export class CaptureDirective implements OnChanges {
-  @Input('appCapture') pokemon!: Pokemon;
+export class PokemonCaptureDirective implements OnChanges {
+  @Input('appPokemonCapture') pokemon!: Pokemon;
   @HostBinding('class.btn-secondary') @HostBinding('disabled') isCaptured = false;
   @HostBinding('innerHTML') text = 'Capturar';
 

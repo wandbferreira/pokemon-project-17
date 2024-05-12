@@ -1,17 +1,10 @@
-<a class="card fadeIn" routerLinkActive="active" [routerLink]="['/pokemons', pokemon.id]">
+<a class="card" routerLinkActive="active" [routerLink]="['/pokemons', pokemon.id]">
   <img class="p-2 card-img-top img-1x1" [src]="pokemon.image" [alt]="pokemon.name" />
   <div class="card-body">
     <h5 class="card-title">{{ pokemon.name }}</h5>
     <p class="card-text teste">
       <app-pokemon-type [type]="pokemon.type"></app-pokemon-type><br />
-      {{ toUpperCase("id") }}: {{ pokemon.id }}
+      <span class="text-uppercase">id:</span> {{ pokemon.id }}
     </p>
   </div>
 </a>
-
-<div *ngIf="canCapture">
-  <button class="btn btn-primary w-100 mt-2" [appCapture]="pokemon">Capturar</button>
-
-  <app-pokemon-type-selector [type]="pokemon.type" (typeChange)="setPokemonType($event)">
-  </app-pokemon-type-selector>
-</div>

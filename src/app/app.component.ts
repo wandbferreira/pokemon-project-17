@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   NavigationCancel,
   NavigationEnd,
@@ -9,8 +9,8 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { filter } from 'rxjs';
+import { PokemonService } from './modules/pokemon/pokemon.service';
 import { LoadingService } from './shared/services/loading.service';
-import { PokemonService } from './shared/services/pokemon.service';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +27,6 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private loadingService: LoadingService,
-    private cd: ChangeDetectorRef,
     private pokemonService: PokemonService
   ) {}
 
@@ -43,7 +42,6 @@ export class AppComponent implements OnInit {
   private setLoading() {
     this.loadingService.isLoading().subscribe(loading => {
       this.isLoading = loading;
-      this.cd.detectChanges();
     });
   }
 

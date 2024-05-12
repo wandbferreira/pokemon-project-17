@@ -1,4 +1,4 @@
-import { PokemonService } from '../../../../shared/services/pokemon.service';
+import { PokemonService } from '../../pokemon.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../../../shared/models/pokemon';
 import { Observable } from 'rxjs';

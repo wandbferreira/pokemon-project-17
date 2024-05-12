@@ -13,7 +13,7 @@
   }
 }
 
-:host-context(app-pokemon-type-selector) {
+:host-context(app-pokemon-list app-pokemon-type-selector) {
   .type {
     display: none;
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, delay, of, throwError } from 'rxjs';
 import { pokemonsMock } from '../../../mocks/pokemons.mock';
-import { Pokemon } from '../models/pokemon';
+import { Pokemon } from '../../shared/models/pokemon';
 
 @Injectable({
   providedIn: 'root',

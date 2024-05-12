@@ -16,11 +16,11 @@ export interface PokemonFilter {
 }
 
 @Component({
-  selector: 'app-pokemon-filters',
-  templateUrl: './pokemon-filters.component.html',
+  selector: 'app-pokemon-filter',
+  templateUrl: './pokemon-filter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonFiltersComponent implements OnInit {
+export class PokemonFilterComponent implements OnInit {
   @Input() filter!: PokemonFilter;
   @Output() filterChange = new EventEmitter<PokemonFilter>();
 

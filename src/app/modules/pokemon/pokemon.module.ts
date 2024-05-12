@@ -2,8 +2,17 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { CaptureDirective } from './directives/capture-directive';
+import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
+import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { PokemonFilterComponent } from './components/pokemon-filter/pokemon-filter.component';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonPokebolaComponent } from './components/pokemon-pokebola/pokemon-pokebola.component';
+import { PokemonTypeSelectorComponent } from './components/pokemon-type-selector/pokemon-type-selector.component';
+import { PokemonTypeComponent } from './components/pokemon-type/pokemon-type.component';
+import { PokemonCaptureDirective } from './directives/pokemon-capture.directive';
 import { PokemonEnemiesPipe } from './pipes/pokemon-enemies.pipe';
+import { PokemonFilterPipe } from './pipes/pokemon-filter.pipe';
+import { PokemonTypeColorPipe } from './pipes/pokemon-type-color.pipe';
 import { PokemonTypePipe } from './pipes/pokemon-type.pipe';
 import {
   evolutionsResolver,
@@ -11,15 +20,6 @@ import {
   pokemonsResolver,
   trainerNamesResolver,
 } from './pokemon.resolver';
-import { PokemonTypeColorPipe } from './pipes/pokemon-type-color.pipe';
-import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
-import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
-import { PokemonFiltersComponent } from './components/pokemon-filters/pokemon-filters.component';
-import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
-import { PokemonTypeSelectorComponent } from './components/pokemon-type-selector/pokemon-type-selector.component';
-import { PokemonTypeComponent } from './components/pokemon-type/pokemon-type.component';
-import { PokemonPokebolaComponent } from './components/pokemon-pokebola/pokemon-pokebola.component';
-import { PokemonFilterPipe } from './pipes/pokemon-filter.pipe';
 
 const routes: Routes = [
   {
@@ -48,22 +48,22 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     PokemonListComponent,
-    PokemonFiltersComponent,
-    PokemonCardComponent,
+    PokemonFilterComponent,
     PokemonDetailComponent,
-    PokemonTypeComponent,
-    PokemonTypeSelectorComponent,
     PokemonPokebolaComponent,
+    PokemonTypeSelectorComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
     PokemonTypePipe,
+    PokemonTypeComponent,
     PokemonTypeColorPipe,
     PokemonEnemiesPipe,
     PokemonFilterPipe,
-    CaptureDirective,
+    PokemonCaptureDirective,
+    PokemonCardComponent,
   ],
 })
 export class PokemonModule {}

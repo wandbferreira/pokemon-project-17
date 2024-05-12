@@ -7,5 +7,6 @@
     "christian-kohler.path-intellisense", // Path Intelinsese auto complete
     "eamodio.gitlens", // GitLens - author, history
     "esbenp.prettier-vscode", // Prettier - Formatter
+    "tomwhite007.rename-angular-component" // Rename components, directives, etc
   ]
 }

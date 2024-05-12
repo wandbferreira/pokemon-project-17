@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { pokemonsMock } from '../../../../../mocks/pokemons.mock';
 import { Pokemon } from '../../../../shared/models/pokemon';
-import { TrainerService } from '../../../../shared/services/trainer.service';
+import { TrainerService } from '../../../trainer/trainer.service';
 
 @Component({
   selector: 'app-pokemon-detail',

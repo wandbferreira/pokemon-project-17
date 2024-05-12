@@ -1,4 +1,4 @@
-import { TrainerService } from './../../shared/services/trainer.service';
+import { TrainerService } from '../trainer/trainer.service';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 

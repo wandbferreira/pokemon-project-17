@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../../../../shared/models/pokemon';
-import { PokemonFilterPipe } from '../../pipes/pokemon-filter.pipe';
-import { TrainerService } from '../../../../shared/services/trainer.service';
-import { PokemonFilter } from './../pokemon-filters/pokemon-filters.component';
+import { TrainerService } from '../../../trainer/trainer.service';
+import { PokemonFilterPipe } from './../../pipes/pokemon-filter.pipe';
+import { PokemonFilter } from '../pokemon-filter/pokemon-filter.component';
 
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PokemonListComponent implements OnInit {
   pokemons: Pokemon[] = [];
@@ -22,11 +23,11 @@ export class PokemonListComponent implements OnInit {
   }
 
   /**
-   * Mudar campos do objeto Pokemon pode ser necessário reaplicar @see PokemonFilterPipe
-   * Já que PokemonFilterPipe é pura
+   * Mudar campos do objeto Pokemon exige re-filtrar
+   * Já que a Pipe não é pura: @see PokemonFilterPipe
    */
-  refreshPokemons() {
-    this.pokemons = [...this.pokemons];
+  reFilter() {
+    this.filter = { ...this.filter };
   }
 
   toTitlecase(str: string) {

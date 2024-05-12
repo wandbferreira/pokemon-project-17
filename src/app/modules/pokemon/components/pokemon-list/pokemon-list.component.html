@@ -2,7 +2,7 @@
   <h1 class="mb-4">{{ toTitlecase("pokemons") }}</h1>
 
   <!-- Filtro -->
-  <app-pokemon-filters [(filter)]="filter"></app-pokemon-filters>
+  <app-pokemon-filter [(filter)]="filter"></app-pokemon-filter>
 
   <!-- Counter -->
   <div id="pokemon-list-counter" class="mb-3" [ngPlural]="filteredPokemons.length">
@@ -18,10 +18,16 @@
   </div>
 
   <!-- Lista -->
-  <div class="row">
-    <div *ngFor="let pokemon of filteredPokemons" class="mb-4 col-12 col-sm-6 col-md-4 col-lg-3">
-      <app-pokemon-card class="to-dark" [pokemon]="pokemon" (pokemonChange)="refreshPokemons()">
-      </app-pokemon-card>
+  <div id="pokemon-list-filtered" class="row">
+    <div
+      *ngFor="let pokemon of filteredPokemons"
+      class="fadeIn mb-4 col-12 col-sm-6 col-md-4 col-lg-3">
+      <app-pokemon-card class="to-dark" [pokemon]="pokemon"></app-pokemon-card>
+
+      <button class="btn btn-primary w-100 mt-2" [appPokemonCapture]="pokemon">Capturar</button>
+
+      <app-pokemon-type-selector [(type)]="pokemon.type" (typeChange)="reFilter()">
+      </app-pokemon-type-selector>
     </div>
   </div>
 </main>

@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Pokemon } from '../../shared/models/pokemon';
-import { PokemonService } from '../../shared/services/pokemon.service';
+import { PokemonService } from './pokemon.service';
 
 export const pokemonsResolver: ResolveFn<Observable<Pokemon[]>> = () => {
   const pokemonService = inject(PokemonService);
