@@ -1,4 +1,6 @@
 .card {
+  overflow: hidden;
+
   &.active {
     border: solid 2px black;
   }
@@ -8,7 +10,7 @@
   }
 
   &:hover,
-  &:focus{
+  &:focus {
     border-color: black;
   }
 

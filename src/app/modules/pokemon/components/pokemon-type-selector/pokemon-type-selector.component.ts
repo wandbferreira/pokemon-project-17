@@ -24,11 +24,10 @@ export class PokemonTypeSelectorComponent implements OnChanges {
     this.types = this.getOtherTypes(this.type);
   }
 
+  /**
+   * Retorna todos os tipos diferentes do atual
+   */
   private getOtherTypes(type: PokemonType): PokemonType[] {
     return pokemonTypeInfosMock.map(t => t.type).filter(t => t !== type);
-  }
-
-  setType(type: PokemonType) {
-    this.typeChange.emit(type);
   }
 }

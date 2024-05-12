@@ -1,11 +1,10 @@
 <ul class="list-inline">
-  <li>
+  <li class="d-inline" *ngFor="let type of types">
     <button
-      [attr.aria-label]="'Mudar para ' + (type | pokemonType)"
-      [title]="'Mudar para ' + (type | pokemonType)"
-      (click)="setType(type)"
-      class="btn btn-white"
-      *ngFor="let type of types">
+      [attr.aria-label]="'Alterar para ' + (type | pokemonType)"
+      [title]="'Alterar para ' + (type | pokemonType)"
+      (click)="typeChange.emit(type)"
+      class="btn btn-light mt-1 me-1">
       <app-pokemon-type [type]="type"></app-pokemon-type>
     </button>
   </li>
