@@ -1,9 +1,9 @@
 import { Directive, HostBinding, HostListener, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pokemon } from '../models/pokemon';
-import { PokemonTypeColorPipe } from '../pipes/pokemon-type-color/pokemon-type-color.pipe';
-import { PokemonTypePipe } from '../pipes/pokemon-type/pokemon-type.pipe';
-import { PokemonService } from '../services/pokemon.service';
+import { Pokemon } from '../../../shared/models/pokemon';
+import { PokemonTypeColorPipe } from '../pipes/pokemon-type-color.pipe';
+import { PokemonTypePipe } from '../pipes/pokemon-type.pipe';
+import { PokemonService } from '../../../shared/services/pokemon.service';
 
 @Directive({
   selector: '[appCapture]',

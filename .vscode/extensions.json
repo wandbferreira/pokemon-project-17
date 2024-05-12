@@ -1,4 +1,11 @@
 {
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
-  "recommendations": ["angular.ng-template"]
+  "recommendations": [
+    "angular.ng-template", // Angular Language service,
+    "dbaeumer.vscode-eslint", // EsLint - Linter
+    "EditorConfig.EditorConfig", // EditorConfig: tabsize, maxlenght etc
+    "christian-kohler.path-intellisense", // Path Intelinsese auto complete
+    "eamodio.gitlens", // GitLens - author, history
+    "esbenp.prettier-vscode", // Prettier - Formatter
+  ]
 }

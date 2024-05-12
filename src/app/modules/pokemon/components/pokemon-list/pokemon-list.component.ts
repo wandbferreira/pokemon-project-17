@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pokemon } from '../../../shared/models/pokemon';
-import { PokemonFilterPipe } from './../../../shared/pipes/pokemon-filter/pokemon-filter.pipe';
-import { TrainerService } from './../../../shared/services/trainer.service';
+import { Pokemon } from '../../../../shared/models/pokemon';
+import { PokemonFilterPipe } from '../../pipes/pokemon-filter.pipe';
+import { TrainerService } from '../../../../shared/services/trainer.service';
 import { PokemonFilter } from './../pokemon-filters/pokemon-filters.component';
 
 @Component({

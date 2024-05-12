@@ -1,9 +1,9 @@
-import { PokemonService } from '../../../shared/services/pokemon.service';
+import { PokemonService } from '../../../../shared/services/pokemon.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Pokemon } from '../../../shared/models/pokemon';
+import { Pokemon } from '../../../../shared/models/pokemon';
 import { Observable } from 'rxjs';
-import { pokemonsMock } from '../../../../mocks/pokemons.mock';
-import { Confirmable } from '../../../shared/decorators/confirmable.decorator';
+import { pokemonsMock } from '../../../../../mocks/pokemons.mock';
+import { Confirmable } from '../../../../shared/decorators/confirmable.decorator';
 
 @Component({
   selector: 'app-pokemon-pokebola',

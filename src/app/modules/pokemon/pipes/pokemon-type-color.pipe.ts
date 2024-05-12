@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PokemonType } from '../../models/pokemon-type';
+import { PokemonType } from '../../../shared/models/pokemon-type';
 import { pokemonTypeInfosMock } from '../../../../mocks/pokemon-type-infos.mock';
 
 @Pipe({

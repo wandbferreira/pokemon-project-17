@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PokemonFilter } from '../../../modules/pokemon/pokemon-filters/pokemon-filters.component';
-import { Pokemon } from '../../models/pokemon';
+import { PokemonFilter } from '../components/pokemon-filters/pokemon-filters.component';
+import { Pokemon } from '../../../shared/models/pokemon';
 
 @Pipe({
   name: 'pokemonFilter',

@@ -7,8 +7,8 @@ import {
   Output,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { pokemonTypeInfosMock } from '../../../../mocks/pokemon-type-infos.mock';
-import { PokemonType } from '../../../shared/models/pokemon-type';
+import { pokemonTypeInfosMock } from '../../../../../mocks/pokemon-type-infos.mock';
+import { PokemonType } from '../../../../shared/models/pokemon-type';
 
 export interface PokemonFilter {
   name?: string;

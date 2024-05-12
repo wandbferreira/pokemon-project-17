@@ -6,8 +6,8 @@ import {
   OnChanges,
   Output,
 } from '@angular/core';
-import { pokemonTypeInfosMock } from '../../../../mocks/pokemon-type-infos.mock';
-import { PokemonType } from '../../../shared/models/pokemon-type';
+import { pokemonTypeInfosMock } from '../../../../../mocks/pokemon-type-infos.mock';
+import { PokemonType } from '../../../../shared/models/pokemon-type';
 
 @Component({
   selector: 'app-pokemon-type-selector',

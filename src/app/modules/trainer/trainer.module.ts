@@ -1,7 +1,7 @@
-import { PokemonService } from './../../shared/services/pokemon.service';
+import { PokemonService } from '../../shared/services/pokemon.service';
 import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TrainerDetailComponent } from './trainer-detail/trainer-detail.component';
+import { TrainerDetailComponent } from './components/trainer-detail/trainer-detail.component';
 import { Route, RouterModule } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { pokemonsMock } from '../../../mocks/pokemons.mock';

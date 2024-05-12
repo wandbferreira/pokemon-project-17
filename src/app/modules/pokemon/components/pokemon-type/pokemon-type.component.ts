@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { PokemonType } from '../../../shared/models/pokemon-type';
+import { PokemonType } from '../../../../shared/models/pokemon-type';
 
 @Component({
   selector: 'app-pokemon-type',

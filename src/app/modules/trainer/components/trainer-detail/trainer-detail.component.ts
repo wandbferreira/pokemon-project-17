@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../../../shared/models/pokemon';
-import { Trainer } from '../../../shared/models/trainer';
-import { TrainerService } from '../../../shared/services/trainer.service';
-import { PokemonService } from './../../../shared/services/pokemon.service';
+import { Pokemon } from '../../../../shared/models/pokemon';
+import { Trainer } from '../../../../shared/models/trainer';
+import { TrainerService } from '../../../../shared/services/trainer.service';
+import { PokemonService } from '../../../../shared/services/pokemon.service';
 
 const trainerServiceInstance: TrainerService = {
   topTrainer: 'Ash',

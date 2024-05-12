@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Pokemon } from '../../../shared/models/pokemon';
-import { PokemonType } from '../../../shared/models/pokemon-type';
+import { Pokemon } from '../../../../shared/models/pokemon';
+import { PokemonType } from '../../../../shared/models/pokemon-type';
 
 @Component({
   selector: 'app-pokemon-card',
