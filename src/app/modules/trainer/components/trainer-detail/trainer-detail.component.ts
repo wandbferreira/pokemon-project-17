@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../../../shared/models/pokemon';
 import { Trainer } from '../../../../shared/models/trainer';
-import { TrainerService } from '../../trainer.service';
 import { PokemonService } from '../../../pokemon/pokemon.service';
+import { TrainerService } from '../../trainer.service';
 
 const trainerServiceInstance: TrainerService = {
   topTrainer: 'Ash',
@@ -31,6 +31,7 @@ export class TrainerDetailComponent implements OnInit {
   constructor(private pokemonService: PokemonService, private trainerService: TrainerService) {}
 
   ngOnInit(): void {
+    // Esse service foi alterado nos providers
     this.pokemonService.getPokemons().subscribe(pokemons => {
       this.team = pokemons;
     });

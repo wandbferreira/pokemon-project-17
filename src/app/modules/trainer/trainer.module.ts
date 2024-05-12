@@ -1,19 +1,19 @@
-import { PokemonService } from '../pokemon/pokemon.service';
-import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TrainerDetailComponent } from './components/trainer-detail/trainer-detail.component';
+import { Injectable, NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { pokemonsMock } from '../../../mocks/pokemons.mock';
 import { Pokemon } from '../../shared/models/pokemon';
 import { PokemonCardComponent } from '../pokemon/components/pokemon-card/pokemon-card.component';
+import { PokemonService } from '../pokemon/pokemon.service';
+import { TrainerDetailComponent } from './components/trainer-detail/trainer-detail.component';
 
-/** Sobre escreve o pokemon service */
+/** Sobreescreve o pokemon service */
 @Injectable({
   providedIn: 'root',
 })
 class OtherPokemonService extends PokemonService {
-  private teamAshIds = [1, 2, 4, 9];
+  private teamAshIds = [1, 4, 5, 25];
 
   override getPokemons(): Observable<Pokemon[]> {
     return of(pokemonsMock.filter(p => this.teamAshIds.includes(p.id)));
