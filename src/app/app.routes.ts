@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
-import { delay, from, map } from 'rxjs';
-import { loggedGuard } from './shared/guards/logged.guard';
+import { delay, from } from 'rxjs';
 import { unsavedGuard } from './shared/guards/unsaved.guard';
 
 export const routes: Routes = [
@@ -12,40 +11,36 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () =>
-      from(import('./modules/login/login.component')).pipe(
-        map(c => c.LoginComponent),
-        delay(200)
-      ),
+      from(import('./modules/login/login.component').then(c => c.LoginComponent)).pipe(delay(0)),
+  },
+  {
+    path: 'termos',
+    loadComponent: () =>
+      from(import('./modules/terms/terms.component').then(c => c.TermsComponent)).pipe(delay(0)),
   },
   {
     path: 'contato',
-    canActivate: [loggedGuard],
     canDeactivate: [unsavedGuard],
     loadComponent: () =>
-      from(import('./modules/contact/contact.component')).pipe(
-        map(c => c.ContactComponent),
-        delay(400)
+      from(import('./modules/contact/contact.component').then(c => c.ContactComponent)).pipe(
+        delay(0)
       ),
   },
   {
     path: 'pokemons',
     loadChildren: () =>
-      from(import('./modules/pokemon/pokemon.module')).pipe(map(m => m.PokemonModule)),
+      from(import('./modules/pokemon/pokemon.module').then(m => m.PokemonModule)).pipe(delay(0)),
   },
   {
     path: 'treinadores',
     loadChildren: () =>
-      from(import('./modules/trainer/trainer.module')).pipe(
-        map(c => c.TrainerModule),
-        delay(700)
-      ),
+      from(import('./modules/trainer/trainer.module').then(c => c.TrainerModule)).pipe(delay(0)),
   },
   {
     path: '**',
     loadComponent: () =>
-      from(import('./modules/not-found/not-found.component')).pipe(
-        map(c => c.NotFoundComponent),
-        delay(800)
+      from(import('./modules/not-found/not-found.component').then(c => c.NotFoundComponent)).pipe(
+        delay(0)
       ),
   },
 ];

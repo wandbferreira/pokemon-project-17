@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { termsGuard } from '../terms/terms.guard';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { PokemonFilterComponent } from './components/pokemon-filter/pokemon-filter.component';
@@ -32,6 +33,7 @@ const routes: Routes = [
   {
     path: 'pokebola',
     component: PokemonPokebolaComponent,
+    canActivate: [termsGuard],
   },
   {
     path: ':id',

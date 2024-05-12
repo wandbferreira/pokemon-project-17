@@ -1,0 +1,40 @@
+<main class="container">
+  <h1 class="text-center">Aceitar Termos</h1>
+
+  <div class="row justify-content-center">
+    <form class="col-md-8" (ngSubmit)="confirm()">
+      <div class="form-group mt-3">
+        <label for="termsTextarea">Termos:</label>
+        <textarea id="termsTextarea" class="form-control" rows="18" disabled>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, voluptates corrupti voluptatem cupiditate enim animi itaque explicabo culpa corporis dolore placeat in debitis perspiciatis, maxime obcaecati beatae consequuntur reprehenderit rerum?
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae aliquam nisi. Sed vel odio et eros fermentum pharetra. Sed ut libero eget nulla auctor fermentum vel ut risus.</textarea
+        >
+      </div>
+      <div class="form-check mt-2">
+        <input
+          type="checkbox"
+          name="terms"
+          class="form-check-input"
+          id="acceptTermsCheckbox"
+          [(ngModel)]="termsAccepted" />
+        <label class="form-check-label" for="acceptTermsCheckbox">Li e aceito os termos.</label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-2" [disabled]="!termsAccepted">
+        Confirmar
+      </button>
+    </form>
+  </div>
+</main>
