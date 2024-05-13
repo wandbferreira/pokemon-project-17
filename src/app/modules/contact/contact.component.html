@@ -10,6 +10,7 @@
           <label for="email" class="form-label">Email</label>
           <input
             name="email"
+            [ngModel]="email"
             type="text"
             class="form-control"
             placeholder="Digite seu email"
@@ -21,6 +22,7 @@
           <input
             name="telefone"
             type="text"
+            [ngModel]="phone"
             class="form-control"
             placeholder="Digite seu telefone"
             required />
@@ -30,6 +32,7 @@
           <label for="message" class="form-label">Mensagem</label>
           <textarea
             name="message"
+            [ngModel]="message"
             class="form-control"
             placeholder="Digite uma mensagem"
             rows="5"
